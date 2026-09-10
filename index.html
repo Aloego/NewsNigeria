@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News Nigeria | The Voice of the Nation • Independent & Comprehensive</title>
+  <meta name="description" content="A modern, professional Nigerian news publication homepage featuring nationwide editorial coverage, breaking news, original reporting, aggregated sources, and dedicated category sections.">
+  <meta property="og:title" content="News Nigeria | The Voice of the Nation • Independent & Comprehensive">
+  <meta property="og:description" content="A modern, professional Nigerian news publication homepage featuring nationwide editorial coverage, breaking news, original reporting, aggregated sources, and dedicated category sections.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./script.js" defer></script>
+</head>
+<body>
+
+  <!-- ======================================================================
+       1. TOP UTILITY BAR
+       Slim, subtle bar providing live date, national scope, weather & socials
+       ====================================================================== -->
+  <header class="top-utility-bar" id="utility-bar">
+    <div class="container utility-container">
+      <div class="utility-left">
+        <span class="utility-date" id="current-date">Thursday, September 10, 2026 • Lagos / Abuja (WAT)</span>
+        <span class="utility-divider" aria-hidden="true"></span>
+        <span class="utility-tagline">Nigeria's latest news and stories</span>
+      </div>
+      <div class="utility-right">
+        <div class="utility-weather" id="utility-weather" title="National Weather Snapshot">
+          <span>Lagos 29°C ⛅</span> &bull; <span>Abuja 31°C ☀️</span>
+        </div>
+        <nav class="social-links" aria-label="Social media channels">
+          <a href="#" class="social-link" title="Follow us on X (Twitter)" aria-label="X Twitter">𝕏</a>
+          <a href="#" class="social-link" title="Follow us on Facebook" aria-label="Facebook">f</a>
+          <a href="#" class="social-link" title="Follow us on Instagram" aria-label="Instagram">📸</a>
+          <a href="#" class="social-link" title="Subscribe to YouTube channel" aria-label="YouTube">▶</a>
+          <a href="#" class="social-link" title="Join Telegram channel" aria-label="Telegram">✈</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================================================================
+       2. MAIN HEADER
+       Prominent branding, publication tagline, search toggle & mobile trigger
+       ====================================================================== -->
+  <div class="main-header" id="main-header">
+    <div class="container header-container">
+      <!-- Left: Logo & National Identity -->
+      <div class="brand-logo-wrap">
+        <a href="index.html" class="brand-logo" id="site-logo" aria-label="News Nigeria Homepage">
+          NEWS <span class="accent-green">NIGERIA</span>
+          <span class="brand-flag-badge" aria-hidden="true" title="Federal Republic of Nigeria">
+            <span class="flag-green"></span>
+            <span class="flag-white"></span>
+            <span class="flag-green"></span>
+          </span>
+        </a>
+        <span class="brand-subtext">Independent National Online Publication</span>
+      </div>
+
+      <!-- Centre: Publication Editorial Tagline -->
+      <div class="header-tagline-wrap" id="header-tagline">
+        <p class="header-tagline">"Truth, objectivity, and comprehensive nationwide reporting."</p>
+        <p class="header-motto">Veritas &bull; Progress &bull; Unity</p>
+      </div>
+
+      <!-- Right: Search Button & Mobile Hamburger Toggle -->
+      <div class="header-actions">
+        <button class="icon-btn search-toggle-btn" id="search-toggle-btn" aria-label="Toggle search field" aria-expanded="false" title="Search publication">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+
+        <button class="icon-btn hamburger-btn" id="hamburger-toggle" aria-label="Open navigation menu" aria-expanded="false">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Search Bar Overlay (Interactive Dropdown) -->
+  <div class="search-overlay" id="search-overlay" aria-hidden="true">
+    <div class="container">
+      <form class="search-form" id="header-search-form" role="search">
+        <input type="search" class="search-input" id="search-input" placeholder="Search politics, economy, states, technology, reports..." aria-label="Search articles">
+        <button type="submit" class="search-submit-btn" id="search-submit-btn">Search</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       3. MAIN NAVIGATION
+       Horizontal categories with active Home state, More dropdown & Mobile Drawer
+       ====================================================================== -->
+  <nav class="main-navigation" id="main-navigation" aria-label="Main publication sections">
+    <div class="container nav-container">
+      <ul class="nav-list" id="nav-list">
+        <li class="nav-item"><a href="index.html" class="nav-link active" id="nav-home">Home</a></li>
+        <li class="nav-item"><a href="#latest" class="nav-link" id="nav-latest">Latest</a></li>
+        <li class="nav-item"><a href="#nigeria" class="nav-link" id="nav-nigeria">Nigeria</a></li>
+        <li class="nav-item"><a href="#politics" class="nav-link" id="nav-politics">Politics</a></li>
+        <li class="nav-item"><a href="#business" class="nav-link" id="nav-business">Business</a></li>
+        <li class="nav-item"><a href="#economy" class="nav-link" id="nav-economy">Economy</a></li>
+        <li class="nav-item"><a href="#tech" class="nav-link" id="nav-tech">Technology</a></li>
+        <li class="nav-item"><a href="#education" class="nav-link" id="nav-education">Education</a></li>
+        <li class="nav-item"><a href="#health" class="nav-link" id="nav-health">Health</a></li>
+        <li class="nav-item"><a href="#entertainment" class="nav-link" id="nav-entertainment">Entertainment</a></li>
+        <li class="nav-item"><a href="#sports" class="nav-link" id="nav-sports">Sports</a></li>
+        <li class="nav-item has-dropdown">
+          <a href="#more" class="nav-link" id="nav-more" aria-haspopup="true">More ▾</a>
+          <ul class="dropdown-menu" aria-label="Additional sections">
+            <li><a href="#crime-security" class="dropdown-item">Crime &amp; Security</a></li>
+            <li><a href="#culture" class="dropdown-item">Culture &amp; Heritage</a></li>
+            <li><a href="#environment" class="dropdown-item">Environment &amp; Climate</a></li>
+            <li><a href="#lifestyle" class="dropdown-item">Lifestyle &amp; Living</a></li>
+            <li><a href="#community" class="dropdown-item">Community &amp; Local News</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Mobile Off-Canvas Drawer -->
+  <div class="mobile-nav-backdrop" id="mobile-backdrop" aria-hidden="true"></div>
+  <aside class="mobile-nav-drawer" id="mobile-drawer" aria-label="Mobile Navigation">
+    <div class="mobile-drawer-header">
+      <span class="brand-logo" style="font-size: 1.25rem;">NEWS <span class="accent-green">NIGERIA</span></span>
+      <button class="mobile-drawer-close" id="mobile-drawer-close" aria-label="Close navigation menu">&times;</button>
+    </div>
+    <ul class="mobile-drawer-list">
+      <li><a href="index.html" class="mobile-nav-link active">Home</a></li>
+      <li><a href="#latest" class="mobile-nav-link">Latest News</a></li>
+      <li><a href="#original-stories" class="mobile-nav-link">Our Original Stories</a></li>
+      <li><a href="#nigeria" class="mobile-nav-link">Nigeria</a></li>
+      <li><a href="#politics" class="mobile-nav-link">Politics</a></li>
+      <li><a href="#business" class="mobile-nav-link">Business</a></li>
+      <li><a href="#economy" class="mobile-nav-link">Economy</a></li>
+      <li><a href="#tech" class="mobile-nav-link">Technology</a></li>
+      <li><a href="#education" class="mobile-nav-link">Education</a></li>
+      <li><a href="#health" class="mobile-nav-link">Health</a></li>
+      <li><a href="#entertainment" class="mobile-nav-link">Entertainment</a></li>
+      <li><a href="#sports" class="mobile-nav-link">Sports</a></li>
+      <li><a href="#crime-security" class="mobile-nav-link">Crime &amp; Security</a></li>
+      <li><a href="#environment" class="mobile-nav-link">Environment</a></li>
+    </ul>
+  </aside>
+
+  <!-- ======================================================================
+       4. BREAKING NEWS BAR
+       Compact, clean, non-distracting alert ticker with controls
+       ====================================================================== -->
+  <section class="breaking-bar" id="breaking-news-bar" aria-label="Breaking News Alerts">
+    <div class="container breaking-container">
+      <span class="breaking-label">
+        <span class="breaking-dot" aria-hidden="true"></span>
+        BREAKING
+      </span>
+      <div class="breaking-ticker-wrap">
+        <a href="article.html" class="breaking-item" id="breaking-headline-text" data-story-type="original" data-headline="Federal Government announces updated monetary and trade incentives to boost non-oil exports across geopolitical zones">
+          Federal Government announces updated monetary and trade incentives to boost non-oil exports across geopolitical zones
+        </a>
+      </div>
+      <div class="breaking-controls" aria-label="Ticker controls">
+        <button class="breaking-btn" id="breaking-prev-btn" aria-label="Previous breaking headline" title="Previous">◀</button>
+        <button class="breaking-btn" id="breaking-pause-btn" aria-label="Pause ticker" title="Pause">⏸</button>
+        <button class="breaking-btn" id="breaking-next-btn" aria-label="Next breaking headline" title="Next">▶</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       5. TOP ADVERTISEMENT
+       Prominent responsive horizontal ad placeholder (Desktop leaderboard / Mobile banner)
+       ====================================================================== -->
+  <aside class="container" aria-label="Top Advertisement">
+    <div class="ad-slot ad-banner" id="ad-top-banner">
+      <span class="ad-label">ADVERTISEMENT</span>
+      <p class="ad-placeholder-text">[ TOP BANNER ADVERTISEMENT &bull; LEADERBOARD SLOT ]</p>
+      <span class="ad-dimensions">Desktop: 970&times;90 / 728&times;90 &bull; Responsive Banner</span>
+    </div>
+    <!-- Mobile specific banner placeholder -->
+    <div class="ad-slot ad-mobile" id="ad-mobile-top">
+      <span class="ad-label">ADVERTISEMENT</span>
+      <p class="ad-placeholder-text">[ MOBILE TOP BANNER ]</p>
+      <span class="ad-dimensions">320&times;50 Mobile Header Ad</span>
+    </div>
+  </aside>
+
+  <!-- ======================================================================
+       6. MAIN LEAD NEWS AREA
+       Dominant editorial hierarchy: Major Lead Story + Curated Secondary Stories
+       ====================================================================== -->
+  <main>
+    <section class="lead-news-section" id="lead-news">
+      <div class="container">
+        <div class="lead-grid">
+          
+          <!-- Dominant Major Lead Story -->
+          <article class="news-card card-large lead-story-card" id="main-lead-story">
+            <div class="card-image-wrap">
+              <svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Aerial view of transport corridors and logistics freight rail network in Nigeria">
+                <defs>
+                  <linearGradient id="grad-corridor" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#0f2b1d" />
+                    <stop offset="50%" stop-color="#1b4d36" />
+                    <stop offset="100%" stop-color="#0a1a12" />
+                  </linearGradient>
+                </defs>
+                <rect width="800" height="450" fill="url(#grad-corridor)" />
+                <!-- Modern Infrastructure Graphic -->
+                <path d="M0 380 Q 400 280 800 360 L 800 450 L 0 450 Z" fill="#132e22" opacity="0.8" />
+                <path d="M0 340 L 800 410" stroke="#00a854" stroke-width="4" stroke-dasharray="16 8" />
+                <path d="M0 355 L 800 425" stroke="#ffffff" stroke-width="3" opacity="0.4" />
+                <!-- Modern high-speed rail train silhouette -->
+                <rect x="340" y="280" width="220" height="48" rx="12" fill="#e2e8f0" />
+                <rect x="360" y="292" width="30" height="18" rx="3" fill="#0f172a" />
+                <rect x="400" y="292" width="30" height="18" rx="3" fill="#0f172a" />
+                <rect x="440" y="292" width="30" height="18" rx="3" fill="#0f172a" />
+                <rect x="480" y="292" width="30" height="18" rx="3" fill="#0f172a" />
+                <path d="M 550 280 L 590 310 L 550 328 Z" fill="#006633" />
+                <!-- Geographic Points Indicator -->
+                <circle cx="160" cy="180" r="10" fill="#22c55e" />
+                <circle cx="160" cy="180" r="22" stroke="#22c55e" stroke-width="1.5" fill="none" opacity="0.6" />
+                <text x="185" y="185" fill="#f8fafc" font-size="16" font-family="sans-serif" font-weight="bold">Lagos Port Terminal Hub</text>
+                <circle cx="620" cy="130" r="10" fill="#22c55e" />
+                <circle cx="620" cy="130" r="22" stroke="#22c55e" stroke-width="1.5" fill="none" opacity="0.6" />
+                <text x="440" y="135" fill="#f8fafc" font-size="16" font-family="sans-serif" font-weight="bold">Kano Inland Logistics Dry Port</text>
+                <!-- Badge on Image -->
+                <rect x="24" y="24" width="160" height="32" rx="4" fill="#006633" />
+                <text x="36" y="45" fill="#ffffff" font-size="13" font-family="sans-serif" font-weight="bold">LEAD INVESTIGATION</text>
+              </svg>
+            </div>
+            <div class="card-content">
+              <div>
+                <span class="content-type-badge original" title="Written by our own newsroom">ORIGINAL</span>
+                <span class="badge-category economy">ECONOMY &bull; INFRASTRUCTURE</span>
+              </div>
+              <h1 class="card-headline">
+                <a href="article.html" data-story-type="original" data-headline="Federal Government Unveils ₦2.4 Trillion National Transport & Logistics Corridor Plan Connecting Lagos, Kano, and Calabar">
+                  Federal Government Unveils ₦2.4 Trillion National Transport &amp; Logistics Corridor Plan Connecting Lagos, Kano, and Calabar
+                </a>
+              </h1>
+              <p class="card-excerpt">
+                The comprehensive multi-modal infrastructure initiative aims to modernize interstate heavy freight rail links, resolve persistent maritime port congestion, and catalyze agricultural trade between agro-hubs and southern consumer markets across all geopolitical zones.
+              </p>
+              <div class="story-meta">
+                <span class="story-author">By Our Newsroom Special Projects Team</span>
+                <span class="story-meta-divider">&bull;</span>
+                <time datetime="2026-09-10T07:45">September 10, 2026 &bull; 07:45 WAT</time>
+              </div>
+            </div>
+          </article>
+
+          <!-- Secondary Stories Stack Beside Lead -->
+          <div class="lead-secondary-stack" id="lead-secondary-stories">
+            
+            <!-- Secondary Story 1 (Politics - External) -->
+            <article class="news-card lead-secondary-item">
+              <div class="card-image-wrap">
+                <svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="National Assembly complex in Abuja">
+                  <rect width="200" height="150" fill="#1e293b" />
+                  <path d="M20 130 L180 130 L180 120 L20 120 Z" fill="#475569" />
+                  <rect x="40" y="70" width="16" height="50" fill="#94a3b8" />
+                  <rect x="70" y="70" width="16" height="50" fill="#94a3b8" />
+                  <rect x="100" y="70" width="16" height="50" fill="#94a3b8" />
+                  <rect x="130" y="70" width="16" height="50" fill="#94a3b8" />
+                  <path d="M15 70 L100 25 L185 70 Z" fill="#006633" />
+                  <circle cx="100" cy="48" r="8" fill="#ffffff" />
+                </svg>
+              </div>
+              <div class="card-content">
+                <div>
+                  <span class="content-type-badge external">EXTERNAL</span>
+                  <span class="badge-category politics">POLITICS</span>
+                </div>
+                <h2 class="card-headline">
+                  <a href="#" data-story-type="external" data-source="Premium Times" data-headline="National Assembly Resumes Plenary with Focus on Electoral Act Amendments and Devolved State Policing">
+                    National Assembly Resumes Plenary with Focus on Electoral Act Amendments and Devolved State Policing
+                  </a>
+                </h2>
+                <div class="story-meta">
+                  <span class="story-source">SOURCE: Premium Times</span>
+                  <span class="story-meta-divider">&bull;</span>
+                  <time datetime="2026-09-10T08:15">1 hour ago</time>
+                </div>
+              </div>
+            </article>
+
+            <!-- Secondary Story 2 (Business - External) -->
+            <article class="news-card lead-secondary-item">
+              <div class="card-image-wrap">
+                <svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Manufacturing and industrial facility in Nigeria">
+                  <rect width="200" height="150" fill="#0f172a" />
+                  <rect x="25" y="60" width="70" height="70" fill="#334155" />
+                  <polygon points="25,60 60,35 95,60" fill="#065f46" />
+                  <rect x="105" y="45" width="65" height="85" fill="#1e293b" />
+                  <line x1="120" y1="20" x2="120" y2="45" stroke="#64748b" stroke-width="6" />
+                  <line x1="145" y1="15" x2="145" y2="45" stroke="#64748b" stroke-width="6" />
+                  <path d="M20 125 Q 100 100 180 110" stroke="#22c55e" stroke-width="3" fill="none" />
+                </svg>
+              </div>
+              <div class="card-content">
+                <div>
+                  <span class="content-type-badge external">EXTERNAL</span>
+                  <span class="badge-category business">BUSINESS</span>
+                </div>
+                <h2 class="card-headline">
+                  <a href="#" data-story-type="external" data-source="BusinessDay Nigeria" data-headline="Manufacturers Association Commends Fresh Foreign Exchange Window for Raw Material Imports">
+                    Manufacturers Association Commends Fresh Foreign Exchange Window for Raw Material Imports
+                  </a>
+                </h2>
+                <div class="story-meta">
+                  <span class="story-source">SOURCE: BusinessDay Nigeria</span>
+                  <span class="story-meta-divider">&bull;</span>
+                  <time datetime="2026-09-10T07:20">2 hours ago</time>
+                </div>
+              </div>
+            </article>
+
+            <!-- Secondary Story 3 (Technology - Original) -->
+            <article class="news-card lead-secondary-item">
+              <div class="card-image-wrap">
+                <svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Technology and fintech code nodes illustration">
+                  <rect width="200" height="150" fill="#082f49" />
+                  <circle cx="60" cy="50" r="14" fill="#0284c7" />
+                  <circle cx="140" cy="50" r="14" fill="#0284c7" />
+                  <circle cx="100" cy="105" r="18" fill="#38bdf8" />
+                  <line x1="60" y1="50" x2="100" y2="105" stroke="#bae6fd" stroke-width="3" />
+                  <line x1="140" y1="50" x2="100" y2="105" stroke="#bae6fd" stroke-width="3" />
+                  <text x="92" y="112" fill="#082f49" font-size="16" font-family="sans-serif" font-weight="bold">₦</text>
+                </svg>
+              </div>
+              <div class="card-content">
+                <div>
+                  <span class="content-type-badge original">ORIGINAL</span>
+                  <span class="badge-category tech">TECHNOLOGY</span>
+                </div>
+                <h2 class="card-headline">
+                  <a href="article.html" data-story-type="original" data-headline="Lagos FinTech & Clean Energy Startups Raise $180M in H1 2026 Seed Rounds for Cross-Border Solutions">
+                    Lagos FinTech &amp; Clean Energy Startups Raise $180M in H1 2026 Seed Rounds for Cross-Border Solutions
+                  </a>
+                </h2>
+                <div class="story-meta">
+                  <span class="story-author">By Kelechi Nwosu</span>
+                  <span class="story-meta-divider">&bull;</span>
+                  <time datetime="2026-09-10T06:30">3 hours ago</time>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         7. LATEST NEWS + 8. SIDEBAR SECTION
+         Two-column layout: Left Chronological Stream & Right 'Most Read' + Sidebar Ad
+         ====================================================================== -->
+    <section class="latest-and-sidebar-section" id="latest">
+      <div class="container">
+        <div class="two-column-layout">
+          
+          <!-- Column 1: Latest News Feed (Chronological) -->
+          <div class="latest-column">
+            <div class="section-header-wrap">
+              <h2 class="section-title">Latest News</h2>
+              <a href="#latest" class="section-view-all">View All Latest Stories &rarr;</a>
+            </div>
+
+            <div class="latest-stories-list">
+              
+              <!-- Item 1: Education -->
+              <article class="news-card card-small-horizontal">
+                <div class="card-image-wrap">
+                  <svg viewBox="0 0 160 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Classroom and learning books">
+                    <rect width="160" height="120" fill="#312e81" />
+                    <rect x="30" y="70" width="40" height="30" fill="#a5b4fc" />
+                    <rect x="75" y="60" width="40" height="40" fill="#818cf8" />
+                    <polygon points="80,25 40,45 120,45" fill="#e0e7ff" />
+                  </svg>
+                </div>
+                <div class="card-content">
+                  <div>
+                    <span class="content-type-badge external">EXTERNAL</span>
+                    <span class="badge-category education">EDUCATION</span>
+                  </div>
+                  <h3 class="card-headline">
+                    <a href="#" data-story-type="external" data-source="Daily Trust" data-headline="Ministry of Education Approves Modern STEM & Coding Curriculum for Secondary Schools Nationwide">
+                      Ministry of Education Approves Modern STEM &amp; Coding Curriculum for Secondary Schools Nationwide
+                    </a>
+                  </h3>
+                  <div class="story-meta">
+                    <span class="story-source">SOURCE: Daily Trust</span>
+                    <span class="story-meta-divider">&bull;</span>
+                    <time datetime="2026-09-10T08:35">25 mins ago</time>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Item 2: Crime & Security -->
+              <article class="news-card card-small-horizontal">
+                <div class="card-image-wrap">
+                  <svg viewBox="0 0 160 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Security checkpoint and border enforcement">
+                    <rect width="160" height="120" fill="#1e1b4b" />
+                    <circle cx="80" cy="55" r="28" fill="#4338ca" opacity="0.5" />
+                    <path d="M80 30 L105 45 L105 75 Q 80 95 80 95 Q 55 75 55 45 Z" fill="#6366f1" />
+                  </svg>
+                </div>
+                <div class="card-content">
+                  <div>
+                    <span class="content-type-badge external">EXTERNAL</span>
+                    <span class="badge-category" style="color: #4f46e5;">CRIME &amp; SECURITY</span>
+                  </div>
+                  <h3 class="card-headline">
+                    <a href="#" data-story-type="external" data-source="The Punch" data-headline="Joint Border Patrol Intercepts Prohibited Contraband Along Southwestern Corridor">
+                      Joint Border Patrol Intercepts Prohibited Contraband Along Southwestern Corridor
+                    </a>
+                  </h3>
+                  <div class="story-meta">
+                    <span class="story-source">SOURCE: The Punch</span>
+                    <span class="story-meta-divider">&bull;</span>
+                    <time datetime="2026-09-10T08:10">50 mins ago</time>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Item 3: Health (Original) -->
+              <article class="news-card card-small-horizontal">
+                <div class="card-image-wrap">
+                  <svg viewBox="0 0 160 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Healthcare facility cross symbol">
+                    <rect width="160" height="120" fill="#064e3b" />
+                    <rect x="70" y="35" width="20" height="50" fill="#34d399" />
+                    <rect x="55" y="50" width="50" height="20" fill="#34d399" />
+                  </svg>
+                </div>
+                <div class="card-content">
+                  <div>
+                    <span class="content-type-badge original">ORIGINAL</span>
+                    <span class="badge-category health">HEALTH</span>
+                  </div>
+                  <h3 class="card-headline">
+                    <a href="article.html" data-story-type="original" data-headline="Primary Healthcare Agency Expands Maternal Care Outreach across 18 Northern States">
+                      Primary Healthcare Agency Expands Maternal Care Outreach across 18 Northern States
+                    </a>
+                  </h3>
+                  <div class="story-meta">
+                    <span class="story-author">By Dr. Amina Bello</span>
+                    <span class="story-meta-divider">&bull;</span>
+                    <time datetime="2026-09-10T07:15">1 hour ago</time>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Item 4: Environment -->
+              <article class="news-card card-small-horizontal">
+                <div class="card-image-wrap">
+                  <svg viewBox="0 0 160 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Green shelterbelt trees in northern Nigeria">
+                    <rect width="160" height="120" fill="#14532d" />
+                    <circle cx="50" cy="70" r="25" fill="#22c55e" />
+                    <rect x="46" y="75" width="8" height="25" fill="#78350f" />
+                    <circle cx="100" cy="60" r="30" fill="#16a34a" />
+                    <rect x="96" y="70" width="8" height="30" fill="#78350f" />
+                  </svg>
+                </div>
+                <div class="card-content">
+                  <div>
+                    <span class="content-type-badge external">EXTERNAL</span>
+                    <span class="badge-category" style="color: #15803d;">ENVIRONMENT</span>
+                  </div>
+                  <h3 class="card-headline">
+                    <a href="#" data-story-type="external" data-source="Vanguard Nigeria" data-headline="Great Green Wall Afforestation Shelterbelts Reclaim 120,000 Hectares in Sokoto and Jigawa">
+                      Great Green Wall Afforestation Shelterbelts Reclaim 120,000 Hectares in Sokoto and Jigawa
+                    </a>
+                  </h3>
+                  <div class="story-meta">
+                    <span class="story-source">SOURCE: Vanguard Nigeria</span>
+                    <span class="story-meta-divider">&bull;</span>
+                    <time datetime="2026-09-10T06:50">2 hours ago</time>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Item 5: Community & Local News -->
+              <article class="news-card card-small-horizontal">
+                <div class="card-image-wrap">
+                  <svg viewBox="0 0 160 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Rural solar power array">
+                    <rect width="160" height="120" fill="#1e293b" />
+                    <polygon points="30,85 70,55 130,55 90,85" fill="#0284c7" stroke="#38bdf8" />
+                    <polygon points="40,105 80,75 140,75 100,105" fill="#0369a1" stroke="#38bdf8" />
+                    <circle cx="130" cy="30" r="14" fill="#facc15" />
+                  </svg>
+                </div>
+                <div class="card-content">
+                  <div>
+                    <span class="content-type-badge external">EXTERNAL</span>
+                    <span class="badge-category nigeria">COMMUNITY</span>
+                  </div>
+                  <h3 class="card-headline">
+                    <a href="#" data-story-type="external" data-source="The Guardian Nigeria" data-headline="Enugu State Government Commissions 15 Solar-Powered Cold Storage Hubs for Farming Cooperatives">
+                      Enugu State Government Commissions 15 Solar-Powered Cold Storage Hubs for Farming Cooperatives
+                    </a>
+                  </h3>
+                  <div class="story-meta">
+                    <span class="story-source">SOURCE: The Guardian Nigeria</span>
+                    <span class="story-meta-divider">&bull;</span>
+                    <time datetime="2026-09-10T06:10">3 hours ago</time>
+                  </div>
+                </div>
+              </article>
+
+            </div>
+          </div>
+
+          <!-- Column 2: Sidebar (Most Read + Sidebar Ad + Market Snapshot) -->
+          <aside class="sidebar-column" id="sidebar">
+            
+            <!-- Most Read Numbered List -->
+            <div class="sidebar-box" id="sidebar-most-read">
+              <h3 class="sidebar-heading">Most Read Stories</h3>
+              <ol class="most-read-list">
+                
+                <li class="most-read-item">
+                  <span class="most-read-number">1</span>
+                  <div class="most-read-content">
+                    <h4 class="most-read-headline">
+                      <a href="article.html" data-story-type="original" data-headline="Central Bank of Nigeria issues comprehensive circular on digital foreign exchange remittances">
+                        Central Bank of Nigeria issues comprehensive circular on digital foreign exchange remittances
+                      </a>
+                    </h4>
+                    <span class="story-meta"><time datetime="2026-09-10T05:00">4,820 reads today</time></span>
+                  </div>
+                </li>
+
+                <li class="most-read-item">
+                  <span class="most-read-number">2</span>
+                  <div class="most-read-content">
+                    <h4 class="most-read-headline">
+                      <a href="#" data-story-type="external" data-source="Punch Sports" data-headline="Super Eagles technical adviser names 26-man provisional squad ahead of continental qualifiers">
+                        Super Eagles technical adviser names 26-man provisional squad ahead of continental qualifiers
+                      </a>
+                    </h4>
+                    <span class="story-meta"><time datetime="2026-09-10T06:00">3,940 reads today</time></span>
+                  </div>
+                </li>
+
+                <li class="most-read-item">
+                  <span class="most-read-number">3</span>
+                  <div class="most-read-content">
+                    <h4 class="most-read-headline">
+                      <a href="#" data-story-type="external" data-source="BusinessDay" data-headline="Dangote Refinery expands domestic fuel distribution channels to all 6 geopolitical zones">
+                        Dangote Refinery expands domestic fuel distribution channels to all 6 geopolitical zones
+                      </a>
+                    </h4>
+                    <span class="story-meta"><time datetime="2026-09-09T18:00">3,410 reads today</time></span>
+                  </div>
+                </li>
+
+                <li class="most-read-item">
+                  <span class="most-read-number">4</span>
+                  <div class="most-read-content">
+                    <h4 class="most-read-headline">
+                      <a href="article.html" data-story-type="original" data-headline="University academic staff union concludes federal dialogue with tentative welfare accord">
+                        University academic staff union concludes federal dialogue with tentative welfare accord
+                      </a>
+                    </h4>
+                    <span class="story-meta"><time datetime="2026-09-09T14:00">2,870 reads today</time></span>
+                  </div>
+                </li>
+
+                <li class="most-read-item">
+                  <span class="most-read-number">5</span>
+                  <div class="most-read-content">
+                    <h4 class="most-read-headline">
+                      <a href="#" data-story-type="external" data-source="Vanguard" data-headline="Lagos State launches electric mass transit bus pilot on Ikorodu-CMS expressway corridor">
+                        Lagos State launches electric mass transit bus pilot on Ikorodu-CMS expressway corridor
+                      </a>
+                    </h4>
+                    <span class="story-meta"><time datetime="2026-09-09T11:00">2,650 reads today</time></span>
+                  </div>
+                </li>
+
+              </ol>
+            </div>
+
+            <!-- Sidebar Advertisement Slot -->
+            <div class="ad-slot ad-sidebar" id="ad-sidebar-slot">
+              <span class="ad-label">ADVERTISEMENT</span>
+              <p class="ad-placeholder-text">[ SIDEBAR ADVERTISEMENT ]</p>
+              <span class="ad-dimensions">300&times;250 / 300&times;600 Medium Rectangle</span>
+            </div>
+
+            <!-- Nigerian Financial Markets & Naira Watch (Editorial Value Feature) -->
+            <div class="market-widget" id="naira-watch">
+              <h4 class="market-widget-title">🇳🇬 Markets &bull; Naira Watch</h4>
+              <div class="market-item">
+                <span class="market-name">Official NAFEM Rate</span>
+                <span class="market-value">₦1,510.40 / $</span>
+                <span class="market-change positive">+0.35%</span>
+              </div>
+              <div class="market-item">
+                <span class="market-name">NGX All-Share Index</span>
+                <span class="market-value">104,280.15</span>
+                <span class="market-change positive">+1.12%</span>
+              </div>
+              <div class="market-item">
+                <span class="market-name">Bonny Light Crude</span>
+                <span class="market-value">$82.40 / bbl</span>
+                <span class="market-change neutral">-0.10%</span>
+              </div>
+            </div>
+
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         9. IN-FEED ADVERTISEMENT
+         Distinct horizontal promotional slot separating primary feeds
+         ====================================================================== -->
+    <section class="container" aria-label="In-feed Advertisement">
+      <div class="ad-slot ad-infeed" id="ad-infeed-slot-1">
+        <span class="ad-label">ADVERTISEMENT</span>
+        <p class="ad-placeholder-text">[ IN-FEED HORIZONTAL BANNER &bull; SPONSORED PLACEMENT ]</p>
+        <span class="ad-dimensions">Responsive In-Feed Banner Slot (Desktop &amp; Tablet)</span>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         13. OUR ORIGINAL STORIES
+         Dedicated showcase section demonstrating stories written by our own newsroom
+         ====================================================================== -->
+    <section class="original-stories-section" id="original-stories">
+      <div class="container">
+        <div class="section-header-wrap">
+          <div>
+            <h2 class="section-title">Our Original Stories</h2>
+            <p class="newsroom-tagline">Investigative reporting, deep field features, and policy analyses produced exclusively by News Nigeria correspondents.</p>
+          </div>
+          <a href="article.html" class="section-view-all" data-story-type="original" data-headline="Explore all Newsroom investigations">Explore Newsroom &rarr;</a>
+        </div>
+
+        <div class="original-stories-grid">
+          
+          <!-- Original Story 1: Commuter Transport Policy -->
+          <article class="news-card original-card" id="original-story-1">
+            <div class="card-image-wrap">
+              <svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Commuters waiting for public transit in Lagos">
+                <rect width="400" height="240" fill="#004d26" />
+                <circle cx="200" cy="120" r="80" fill="#006633" opacity="0.6" />
+                <rect x="80" y="140" width="240" height="60" rx="10" fill="#f8fafc" />
+                <rect x="100" y="150" width="40" height="25" rx="3" fill="#0f172a" />
+                <rect x="150" y="150" width="40" height="25" rx="3" fill="#0f172a" />
+                <rect x="200" y="150" width="40" height="25" rx="3" fill="#0f172a" />
+                <circle cx="120" cy="205" r="14" fill="#0f172a" />
+                <circle cx="280" cy="205" r="14" fill="#0f172a" />
+                <text x="260" y="168" fill="#006633" font-size="12" font-family="sans-serif" font-weight="bold">TRANSIT</text>
+              </svg>
+            </div>
+            <div class="card-content">
+              <div>
+                <span class="content-type-badge original">ORIGINAL</span>
+                <span class="badge-category nigeria">URBAN POLICY</span>
+              </div>
+              <h3 class="card-headline">
+                <a href="article.html" data-story-type="original" data-headline="How a New Transport Policy Is Affecting Commuters in Lagos and Abuja">
+                  How a New Transport Policy Is Affecting Commuters in Lagos and Abuja
+                </a>
+              </h3>
+              <p class="card-excerpt">
+                As regulatory authorities introduce unified digital ticketing and revised corridor routes, daily commuters weigh significant fare stabilization against initial route delays.
+              </p>
+              <div class="story-meta">
+                <span class="story-author">By Our Newsroom Special Desk</span>
+                <span class="story-meta-divider">&bull;</span>
+                <time datetime="2026-09-10">September 10, 2026</time>
+              </div>
+            </div>
+          </article>
+
+          <!-- Original Story 2: Agritech in Plateau -->
+          <article class="news-card original-card" id="original-story-2">
+            <div class="card-image-wrap">
+              <svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Agritech greenhouses in Plateau State">
+                <rect width="400" height="240" fill="#064e3b" />
+                <polygon points="60,180 120,90 180,180" fill="#059669" />
+                <polygon points="150,180 220,80 290,180" fill="#10b981" />
+                <polygon points="260,180 320,100 380,180" fill="#34d399" />
+                <line x1="0" y1="180" x2="400" y2="180" stroke="#78350f" stroke-width="8" />
+              </svg>
+            </div>
+            <div class="card-content">
+              <div>
+                <span class="content-type-badge original">ORIGINAL</span>
+                <span class="badge-category business">AGRICULTURE</span>
+              </div>
+              <h3 class="card-headline">
+                <a href="article.html" data-story-type="original" data-headline="Inside the Agritech Greenhouses of Plateau State: Farmers Beating Climate Pressures">
+                  Inside the Agritech Greenhouses of Plateau State: Farmers Beating Climate Pressures
+                </a>
+              </h3>
+              <p class="card-excerpt">
+                Youth-led horticulture ventures in Jos are deploying solar micro-irrigation and precision seed technology to cultivate high-yield produce year-round.
+              </p>
+              <div class="story-meta">
+                <span class="story-author">By Fatima Bello</span>
+                <span class="story-meta-divider">&bull;</span>
+                <time datetime="2026-09-09">September 9, 2026</time>
+              </div>
+            </div>
+          </article>
+
+          <!-- Original Story 3: Primary Healthcare Clinics in Oyo -->
+          <article class="news-card original-card" id="original-story-3">
+            <div class="card-image-wrap">
+              <svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Rural healthcare clinic delivery in Oyo State">
+                <rect width="400" height="240" fill="#1e1b4b" />
+                <circle cx="200" cy="110" r="60" fill="#3730a3" />
+                <path d="M185 80 L215 80 L215 140 L185 140 Z" fill="#818cf8" />
+                <path d="M165 100 L235 100 L235 120 L165 120 Z" fill="#818cf8" />
+                <path d="M120 190 Q 200 160 280 190" stroke="#c7d2fe" stroke-width="3" fill="none" />
+              </svg>
+            </div>
+            <div class="card-content">
+              <div>
+                <span class="content-type-badge original">ORIGINAL</span>
+                <span class="badge-category health">PUBLIC HEALTH</span>
+              </div>
+              <h3 class="card-headline">
+                <a href="article.html" data-story-type="original" data-headline="Primary Healthcare in Rural Communities: Lessons from Oyo State's Revamped Clinics">
+                  Primary Healthcare in Rural Communities: Lessons from Oyo State's Revamped Clinics
+                </a>
+              </h3>
+              <p class="card-excerpt">
+                A six-month field study on how decentralized solar power and community midwife retention stipends slashed maternal response times in farming settlements.
+              </p>
+              <div class="story-meta">
+                <span class="story-author">By Dr. Babatunde Adeyemi</span>
+                <span class="story-meta-divider">&bull;</span>
+                <time datetime="2026-09-08">September 8, 2026</time>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         10. NEWS CATEGORY SECTIONS
+         Nigeria & Politics (Split 2-Column Overview)
+         ====================================================================== -->
+    <section class="category-section" id="nigeria-and-politics">
+      <div class="container">
+        <div class="category-row-2col">
+          
+          <!-- Block A: Nigeria National Coverage -->
+          <div class="category-block" id="nigeria">
+            <div class="section-header-wrap">
+              <h2 class="section-title">Nigeria</h2>
+              <a href="#nigeria" class="section-view-all">View All &rarr;</a>
+            </div>
+
+            <!-- Featured Story -->
+            <article class="news-card card-medium" style="margin-bottom: var(--space-md);">
+              <div class="card-image-wrap">
+                <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="National map and federal capital cityscape">
+                  <rect width="400" height="220" fill="#0f172a" />
+                  <circle cx="200" cy="110" r="70" fill="#006633" opacity="0.4" />
+                  <path d="M140 160 L170 80 L230 80 L260 160 Z" fill="#1e293b" />
+                  <circle cx="200" cy="90" r="15" fill="#f8fafc" />
+                  <text x="120" y="200" fill="#34d399" font-size="14" font-family="sans-serif" font-weight="bold">36 STATES &bull; FCT ABUJA</text>
+                </svg>
+              </div>
+              <div class="card-content">
+                <div>
+                  <span class="content-type-badge original">ORIGINAL</span>
+                  <span class="badge-category nigeria">NATIONAL</span>
+                </div>
+                <h3 class="card-headline">
+                  <a href="article.html" data-story-type="original" data-headline="National Population Commission Completes Digital Mapping Phase for Nationwide Census">
+                    National Population Commission Completes Digital Mapping Phase for Nationwide Census
+                  </a>
+                </h3>
+                <p class="card-excerpt">
+                  State coordinates and biometric verification systems have been deployed across 774 local government areas in preparation for the historic enumeration exercise.
+                </p>
+                <div class="story-meta">
+                  <span class="story-author">By Musa Garba</span>
+                  <span class="story-meta-divider">&bull;</span>
+                  <time datetime="2026-09-10T04:30">4 hours ago</time>
+                </div>
+              </div>
+            </article>
+
+            <!-- Smaller Story in Section -->
+            <article class="news-card card-small-horizontal">
+              <div class="card-image-wrap">
+                <svg viewBox="0 0 160 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Lekki Deep Sea Port cranes">
+                  <rect width="160" height="120" fill="#082f49" />
+                  <rect x="40" y="40" width="10" height="60" fill="#38bdf8" />
+                  <line x1="40" y1="45" x2="110" y2="45" stroke="#38bdf8" stroke-width="4" />
+                  <line x1="90" y1="45" x2="90" y2="70" stroke="#facc15" stroke-width="2" />
+                </svg>
+              </div>
+              <div class="card-content">
+                <span class="content-type-badge external">EXTERNAL</span>
+                <h4 class="card-headline">
+                  <a href="#" data-story-type="external" data-source="ThisDay" data-headline="Lekki Deep Sea Port Records Record Transshipment Vessel Turnaround in August">
+                    Lekki Deep Sea Port Records Record Transshipment Vessel Turnaround in August
+                  </a>
+                </h4>
+                <div class="story-meta">
+                  <span class="story-source">SOURCE: ThisDay</span>
+                  <span class="story-meta-divider">&bull;</span>
+                  <time datetime="2026-09-09T22:00">Yesterday</time>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Block B: Politics Coverage -->
+          <div class="category-block" id="politics">
+            <div class="section-header-wrap">
+              <h2 class="section-title">Politics</h2>
+              <a href="#politics" class="section-view-all">View All &rarr;</a>
+            </div>
+
+            <!-- Featured Story -->
+            <article class="news-card card-medium" style="margin-bottom: var(--space-md);">
+              <div class="card-image-wrap">
+                <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Political ballot and election policy discussion">
+                  <rect width="400" height="220" fill="#1e1b4b" />
+                  <circle cx="200" cy="110" r="75" fill="#312e81" />
+                  <rect x="150" y="70" width="100" height="90" rx="8" fill="#e0e7ff" />
+                  <rect x="180" y="60" width="40" height="8" rx="2" fill="#1e1b4b" />
+                  <line x1="165" y1="100" x2="235" y2="100" stroke="#4338ca" stroke-width="3" />
+                  <line x1="165" y1="120" x2="215" y2="120" stroke="#4338ca" stroke-width="3" />
+                </svg>
+              </div>
+              <div class="card-content">
+                <div>
+                  <span class="content-type-badge external">EXTERNAL</span>
+                  <span class="badge-category politics">GOVERNANCE</span>
+                </div>
+                <h3 class="card-headline">
+                  <a href="#" data-story-type="external" data-source="Channels TV" data-headline="Governors Forum and Federal Ministry of Finance Harmonize Subnational Revenue Allocation Framework">
+                    Governors Forum and Federal Ministry of Finance Harmonize Subnational Revenue Allocation Framework
+                  </a>
+                </h3>
+                <p class="card-excerpt">
+                  State executives reach landmark consensus on streamlined local government fiscal transparency metrics to unlock performance-based development grants.
+                </p>
+                <div class="story-meta">
+                  <span class="story-source">SOURCE: Channels TV</span>
+                  <span class="story-meta-divider">&bull;</span>
+                  <time datetime="2026-09-10T05:15">3 hours ago</time>
+                </div>
+              </div>
+            </article>
+
+            <!-- Smaller Story in Section -->
+            <article class="news-card card-small-horizontal">
+              <div class="card-image-wrap">
+                <svg viewBox="0 0 160 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Senate mace symbol">
+                  <rect width="160" height="120" fill="#172554" />
+                  <line x1="30" y1="90" x2="130" y2="30" stroke="#f59e0b" stroke-width="8" stroke-linecap="round" />
+                  <circle cx="130" cy="30" r="14" fill="#fbbf24" />
+                </svg>
+              </div>
+              <div class="card-content">
+                <span class="content-type-badge external">EXTERNAL</span>
+                <h4 class="card-headline">
+                  <a href="#" data-story-type="external" data-source="The Nation" data-headline="Senate Committee on Judiciary Begins Public Hearings on Judicial Salary and Pension Overhauls">
+                    Senate Committee on Judiciary Begins Public Hearings on Judicial Salary and Pension Overhauls
+                  </a>
+                </h4>
+                <div class="story-meta">
+                  <span class="story-source">SOURCE: The Nation</span>
+                  <span class="story-meta-divider">&bull;</span>
+                  <time datetime="2026-09-09T20:00">Yesterday</time>
+                </div>
+              </div>
+            </article>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         15. SECTION BANNER ADVERTISEMENT
+         Placed between major sections to maintain realistic publication pacing
+         ====================================================================== -->
+    <aside class="container" aria-label="Section Advertisement">
+      <div class="ad-slot ad-banner" id="ad-mid-banner">
+        <span class="ad-label">ADVERTISEMENT</span>
+        <p class="ad-placeholder-text">[ INTER-SECTION WIDE BANNER &bull; SPONSORED CONTENT ]</p>
+        <span class="ad-dimensions">728&times;90 / 970&times;90 Desktop &bull; Adapts to Mobile</span>
+      </div>
+    </aside>
+
+    <!-- ======================================================================
+         10 & 12. BUSINESS & TECHNOLOGY SECTION
+         Includes in-grid advertisement card (Section 12 requirement!)
+         ====================================================================== -->
+    <section class="category-section" id="business-tech">
+      <div class="container">
+        <div class="section-header-wrap">
+          <h2 class="section-title">Business &amp; Technology</h2>
+          <a href="#business" class="section-view-all">View All Business &amp; Tech &rarr;</a>
+        </div>
+
+        <div class="category-grid-3col">
+          
+          <!-- Card 1: Business News (External) -->
+          <article class="news-card card-medium" id="biz-card-1">
+            <div class="card-image-wrap">
+              <svg viewBox="0 0 350 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Stock exchange trading board">
+                <rect width="350" height="200" fill="#042f2e" />
+                <polyline points="30,160 90,140 150,150 210,100 270,110 320,60" fill="none" stroke="#2dd4bf" stroke-width="4" />
+                <circle cx="320" cy="60" r="6" fill="#5eead4" />
+                <text x="30" y="45" fill="#ccfbf1" font-size="14" font-family="sans-serif" font-weight="bold">NGX MARKET MOMENTUM</text>
+              </svg>
+            </div>
+            <div class="card-content">
+              <div>
+                <span class="content-type-badge external">EXTERNAL</span>
+                <span class="badge-category business">CAPITAL MARKETS</span>
+              </div>
+              <h3 class="card-headline">
+                <a href="#" data-story-type="external" data-source="BusinessDay" data-headline="Nigerian Exchange Group Capitalization Surpasses ₦60 Trillion on Broad Banking and Industrial Rally">
+                  Nigerian Exchange Group Capitalization Surpasses ₦60 Trillion on Broad Banking Rally
+                </a>
+              </h3>
+              <p class="card-excerpt">
+                Institutional investor demand for tier-one lenders surged following robust Q2 earnings and recapitalization updates approved by the Central Bank.
+              </p>
+              <div class="story-meta">
+                <span class="story-source">SOURCE: BusinessDay</span>
+                <span class="story-meta-divider">&bull;</span>
+                <time datetime="2026-09-10T07:10">2 hours ago</time>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2: Section 12 Requirement - IN-GRID ADVERTISEMENT CARD -->
+          <div class="ad-slot ad-card" id="ad-grid-card">
+            <span class="ad-label">ADVERTISEMENT</span>
+            <p class="ad-placeholder-text"><strong>PREMIUM AD SLOT</strong><br>300&times;250 In-Grid Commercial Space</p>
+            <span class="ad-dimensions">Clearly labeled ad unit placed directly inside editorial news grid</span>
+          </div>
+
+          <!-- Card 3: Technology News (Original) -->
+          <article class="news-card card-medium" id="tech-card-1">
+            <div class="card-image-wrap">
+              <svg viewBox="0 0 350 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Data center and AI fiber optic infrastructure in Nigeria">
+                <rect width="350" height="200" fill="#0f172a" />
+                <rect x="60" y="40" width="70" height="120" rx="4" fill="#1e293b" stroke="#334155" />
+                <rect x="150" y="40" width="70" height="120" rx="4" fill="#1e293b" stroke="#334155" />
+                <rect x="240" y="40" width="70" height="120" rx="4" fill="#1e293b" stroke="#334155" />
+                <circle cx="95" cy="65" r="4" fill="#22c55e" />
+                <circle cx="185" cy="65" r="4" fill="#22c55e" />
+                <circle cx="275" cy="65" r="4" fill="#22c55e" />
+                <line x1="30" y1="180" x2="330" y2="180" stroke="#38bdf8" stroke-width="3" />
+              </svg>
+            </div>
+            <div class="card-content">
+              <div>
+                <span class="content-type-badge original">ORIGINAL</span>
+                <span class="badge-category tech">TELECOM &amp; CLOUD</span>
+              </div>
+              <h3 class="card-headline">
+                <a href="article.html" data-story-type="original" data-headline="Subsea Cable Redundancy Projects Boost West African Internet Resilience and Lower Cloud Latency">
+                  Subsea Cable Redundancy Projects Boost West African Internet Resilience
+                </a>
+              </h3>
+              <p class="card-excerpt">
+                New multi-terabit coastal landing stations commissioned in Lekki and Bonny Island ensure uninterrupted connectivity during maritime cable maintenance.
+              </p>
+              <div class="story-meta">
+                <span class="story-author">By Chinedu Okafor</span>
+                <span class="story-meta-divider">&bull;</span>
+                <time datetime="2026-09-10T06:40">3 hours ago</time>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         10. ENTERTAINMENT & SPORTS SECTION
+         Culture, Afrobeats, Nollywood & Super Eagles/Continental Sports
+         ====================================================================== -->
+    <section class="category-section" id="entertainment-sports">
+      <div class="container">
+        <div class="category-row-2col">
+          
+          <!-- Entertainment & Culture -->
+          <div class="category-block" id="entertainment">
+            <div class="section-header-wrap">
+              <h2 class="section-title">Entertainment &amp; Culture</h2>
+              <a href="#entertainment" class="section-view-all">View All &rarr;</a>
+            </div>
+
+            <article class="news-card card-medium">
+              <div class="card-image-wrap">
+                <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Afrobeats musical recording studio soundwaves">
+                  <rect width="400" height="220" fill="#831843" />
+                  <circle cx="200" cy="110" r="70" fill="#9d174d" />
+                  <!-- Soundwave equalizer bars -->
+                  <rect x="130" y="110" width="10" height="40" rx="3" fill="#fbcfe8" />
+                  <rect x="150" y="90" width="10" height="60" rx="3" fill="#fbcfe8" />
+                  <rect x="170" y="70" width="10" height="80" rx="3" fill="#ffffff" />
+                  <rect x="190" y="55" width="10" height="95" rx="3" fill="#ffffff" />
+                  <rect x="210" y="75" width="10" height="75" rx="3" fill="#ffffff" />
+                  <rect x="230" y="95" width="10" height="55" rx="3" fill="#fbcfe8" />
+                  <rect x="250" y="115" width="10" height="35" rx="3" fill="#fbcfe8" />
+                </svg>
+              </div>
+              <div class="card-content">
+                <div>
+                  <span class="content-type-badge original">ORIGINAL</span>
+                  <span class="badge-category entertainment">MUSIC &bull; NOLLYWOOD</span>
+                </div>
+                <h3 class="card-headline">
+                  <a href="article.html" data-story-type="original" data-headline="The Sound of New Afrobeats: Emerging Studios in Enugu, Asaba, and Benin City">
+                    The Sound of New Afrobeats: Emerging Studios in Enugu, Asaba, and Benin City
+                  </a>
+                </h3>
+                <p class="card-excerpt">
+                  Beyond Lagos, regional sound engineers and folk-fusion songwriters are blending indigenous highlife instruments with modern electronic production to capture global streaming charts.
+                </p>
+                <div class="story-meta">
+                  <span class="story-author">By Chuka Eze</span>
+                  <span class="story-meta-divider">&bull;</span>
+                  <time datetime="2026-09-09T17:30">Yesterday</time>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Sports -->
+          <div class="category-block" id="sports">
+            <div class="section-header-wrap">
+              <h2 class="section-title">Sports</h2>
+              <a href="#sports" class="section-view-all">View All &rarr;</a>
+            </div>
+
+            <article class="news-card card-medium">
+              <div class="card-image-wrap">
+                <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Football pitch and tournament trophy in Nigeria">
+                  <rect width="400" height="220" fill="#7c2d12" />
+                  <circle cx="200" cy="110" r="70" fill="#9a3412" />
+                  <circle cx="200" cy="110" r="45" fill="#ea580c" />
+                  <!-- Football graphic -->
+                  <circle cx="200" cy="110" r="32" fill="#ffffff" />
+                  <polygon points="200,95 212,104 207,118 193,118 188,104" fill="#0f172a" />
+                </svg>
+              </div>
+              <div class="card-content">
+                <div>
+                  <span class="content-type-badge external">EXTERNAL</span>
+                  <span class="badge-category sports">FOOTBALL &bull; ATHLETICS</span>
+                </div>
+                <h3 class="card-headline">
+                  <a href="#" data-story-type="external" data-source="Complete Sports" data-headline="Nigeria Premier Football League Approves High-Definition Live Broadcast Schedule for New Season">
+                    Nigeria Premier Football League Approves High-Definition Live Broadcast Schedule for New Season
+                  </a>
+                </h3>
+                <p class="card-excerpt">
+                  All twenty premier division clubs will receive upgraded pitch facilities and VAR infrastructure as domestic sports television coverage expands across free-to-air channels.
+                </p>
+                <div class="story-meta">
+                  <span class="story-source">SOURCE: Complete Sports</span>
+                  <span class="story-meta-divider">&bull;</span>
+                  <time datetime="2026-09-10T06:00">4 hours ago</time>
+                </div>
+              </div>
+            </article>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         19. NEWSLETTER SECTION
+         "Stay Informed" prompt with clean subscription interaction
+         ====================================================================== -->
+    <section class="newsletter-section" id="newsletter">
+      <div class="container">
+        <div class="newsletter-box">
+          <span class="newsletter-badge">Daily Briefing</span>
+          <h2 class="newsletter-title">Stay Informed with News Nigeria</h2>
+          <p class="newsletter-desc">
+            Get verified Nigerian news, in-depth political investigations, and essential economic briefings delivered directly to your inbox every morning.
+          </p>
+          <form class="newsletter-form" id="newsletter-form" novalidate>
+            <input type="email" class="newsletter-input" id="newsletter-email" placeholder="Enter your email address" aria-label="Email address" required>
+            <button type="submit" class="newsletter-btn" id="newsletter-submit-btn">Subscribe Free</button>
+          </form>
+          <div class="newsletter-feedback" id="newsletter-feedback" role="status" aria-live="polite"></div>
+          <p class="newsletter-notice">No spam. Unsubscribe anytime. Delivered weekdays at 06:30 AM WAT.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================================================================
+       17. MOBILE BOTTOM ADVERTISEMENT SPACE
+       Reserved placeholder near the bottom of mobile page for future sticky/banner ad
+       ====================================================================== -->
+  <div class="mobile-bottom-ad-space" id="mobile-bottom-ad-container" aria-label="Mobile Footer Advertisement Slot">
+    <div class="container">
+      <div class="ad-slot ad-mobile" style="margin: 4px auto; min-height: 50px;">
+        <span class="ad-label">ADVERTISEMENT</span>
+        <span class="ad-placeholder-text">[ MOBILE BOTTOM AD CONTAINER &bull; 320&times;50 ]</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       20. FOOTER
+       Comprehensive corporate, editorial, legal, and navigation directory
+       ====================================================================== -->
+  <footer class="main-footer" id="main-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        
+        <!-- Col 1: About Publication -->
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo" aria-label="News Nigeria Footer Logo">
+            NEWS <span class="accent-green">NIGERIA</span>
+          </a>
+          <p class="footer-brand-desc">
+            News Nigeria is an independent, nationwide digital publication committed to credible journalism, verified facts, and comprehensive coverage of Nigeria's politics, business, culture, and communities.
+          </p>
+          <div class="footer-social-wrap">
+            <span class="footer-heading" style="display:block; margin-bottom: 8px;">Follow Us</span>
+            <div class="social-links">
+              <a href="#" class="social-link" title="X (Twitter)" aria-label="X Twitter">𝕏</a>
+              <a href="#" class="social-link" title="Facebook" aria-label="Facebook">f</a>
+              <a href="#" class="social-link" title="Instagram" aria-label="Instagram">📸</a>
+              <a href="#" class="social-link" title="YouTube" aria-label="YouTube">▶</a>
+              <a href="#" class="social-link" title="Telegram" aria-label="Telegram">✈</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Col 2: News Sections -->
+        <div>
+          <h3 class="footer-heading">News Sections</h3>
+          <ul class="footer-links">
+            <li><a href="#latest" class="footer-link">Latest News</a></li>
+            <li><a href="#nigeria" class="footer-link">Nigeria &amp; States</a></li>
+            <li><a href="#politics" class="footer-link">Politics &amp; Governance</a></li>
+            <li><a href="#business" class="footer-link">Business &amp; Economy</a></li>
+            <li><a href="#tech" class="footer-link">Technology &amp; Startups</a></li>
+            <li><a href="#education" class="footer-link">Education &amp; Youth</a></li>
+            <li><a href="#health" class="footer-link">Health &amp; Wellness</a></li>
+            <li><a href="#sports" class="footer-link">Sports &amp; Athletics</a></li>
+            <li><a href="#entertainment" class="footer-link">Entertainment &amp; Lifestyle</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Company & Publishing Info -->
+        <div>
+          <h3 class="footer-heading">Company</h3>
+          <ul class="footer-links">
+            <li><a href="#about" class="footer-link">About Us</a></li>
+            <li><a href="#team" class="footer-link">Our Newsroom Team</a></li>
+            <li><a href="#original-stories" class="footer-link">Investigative Desk</a></li>
+            <li><a href="#contact" class="footer-link">Contact &amp; News Tips</a></li>
+            <li><a href="#advertise" class="footer-link">Advertise With Us</a></li>
+            <li><a href="#editorial" class="footer-link">Editorial Policy &amp; Ethics</a></li>
+            <li><a href="#fact-check" class="footer-link">Fact-Checking Standard</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Legal & Services -->
+        <div>
+          <h3 class="footer-heading">Legal &amp; Compliance</h3>
+          <ul class="footer-links">
+            <li><a href="#privacy" class="footer-link">Privacy Policy</a></li>
+            <li><a href="#terms" class="footer-link">Terms of Use</a></li>
+            <li><a href="#corrections" class="footer-link">Corrections Policy</a></li>
+            <li><a href="#disclaimer" class="footer-link">Sample Content Notice</a></li>
+            <li><a href="#rss" class="footer-link">RSS Feeds</a></li>
+            <li><a href="#sitemap" class="footer-link">Site Directory</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar with Copyright & Back to Top -->
+      <div class="footer-bottom">
+        <p>&copy; 2026 NEWS NIGERIA. All rights reserved. Demonstration sample content for frontend architecture preview.</p>
+        <a href="#top" class="back-to-top-btn" id="back-to-top" title="Scroll back to top">
+          Back to Top &uarr;
+        </a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

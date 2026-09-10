@@ -1,0 +1,1564 @@
+/* ==========================================================================
+   NEWS NIGERIA - OFFICIAL STYLESHEET (style.css)
+   A clean, modern, responsive stylesheet for an online Nigerian news publication.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CSS VARIABLES & DESIGN TOKENS
+   -------------------------------------------------------------------------- */
+:root {
+  /* Brand Palette - Authoritative Editorial Green & Accents */
+  --color-primary: #006633;        /* Nigerian Flag Green - Dignified & Authoritative */
+  --color-primary-dark: #004d26;
+  --color-primary-light: #0d8246;
+  --color-accent-red: #c5221f;     /* Breaking News Crimson */
+  --color-accent-gold: #b45309;    /* Editorial Gold / Premium */
+
+  /* Neutral Spectrum */
+  --color-bg: #f8fafc;
+  --color-surface: #ffffff;
+  --color-surface-subtle: #f1f5f9;
+  --color-border: #e2e8f0;
+  --color-border-dark: #cbd5e1;
+
+  /* Typography Colors */
+  --color-text-main: #0f172a;       /* Ink Black for maximum legibility */
+  --color-text-muted: #475569;      /* Slate for secondary copy */
+  --color-text-light: #64748b;      /* Light slate for bylines & dates */
+  --color-text-inverse: #ffffff;
+
+  /* Category Badge Colors */
+  --cat-nigeria: #006633;
+  --cat-politics: #1e3a8a;
+  --cat-business: #065f46;
+  --cat-economy: #92400e;
+  --cat-tech: #0e7490;
+  --cat-health: #15803d;
+  --cat-education: #4338ca;
+  --cat-sports: #c2410c;
+  --cat-entertainment: #9d174d;
+
+  /* Typography Stacks */
+  --font-serif: "Merriweather", Georgia, "Times New Roman", Cambria, serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* Spacing Scale */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-xxl: 48px;
+
+  /* Layout Boundaries */
+  --max-width: 1240px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s ease;
+}
+
+/* --------------------------------------------------------------------------
+   2. GLOBAL RESETS & BASE STYLES
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: var(--color-text-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-primary);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-md);
+  padding-right: var(--space-md);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* --------------------------------------------------------------------------
+   3. UTILITY BAR (TOP)
+   -------------------------------------------------------------------------- */
+.top-utility-bar {
+  background-color: #0b1320;
+  color: #cbd5e1;
+  font-size: 0.8125rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+.utility-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+.utility-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.utility-date {
+  font-weight: 500;
+  color: #e2e8f0;
+}
+
+.utility-divider {
+  display: inline-block;
+  width: 1px;
+  height: 12px;
+  background-color: #334155;
+}
+
+.utility-tagline {
+  color: #94a3b8;
+}
+
+.utility-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.utility-weather {
+  color: #cbd5e1;
+}
+
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #e2e8f0;
+  font-size: 0.75rem;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.social-link:hover {
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+
+/* --------------------------------------------------------------------------
+   4. MAIN HEADER
+   -------------------------------------------------------------------------- */
+.main-header {
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  padding: 18px 0;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Brand Logo (Left) */
+.brand-logo-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-logo {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  font-size: 2.25rem;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: var(--color-text-main);
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.brand-logo:hover {
+  color: var(--color-text-main);
+}
+
+.brand-logo .accent-green {
+  color: var(--color-primary);
+}
+
+.brand-flag-badge {
+  display: inline-flex;
+  width: 22px;
+  height: 14px;
+  border-radius: 2px;
+  overflow: hidden;
+  margin-left: 6px;
+  vertical-align: middle;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.brand-flag-badge span {
+  flex: 1;
+  height: 100%;
+}
+.brand-flag-badge .flag-green { background-color: #006633; }
+.brand-flag-badge .flag-white { background-color: #ffffff; }
+
+.brand-subtext {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-light);
+  margin-top: 4px;
+}
+
+/* Publication Tagline (Center) */
+.header-tagline-wrap {
+  text-align: center;
+  max-width: 440px;
+}
+
+.header-tagline {
+  font-family: var(--font-serif);
+  font-size: 0.9375rem;
+  font-style: italic;
+  color: var(--color-text-muted);
+  line-height: 1.4;
+}
+
+.header-motto {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-primary-dark);
+  margin-top: 2px;
+}
+
+/* Header Actions (Right) */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  color: var(--color-text-main);
+  background-color: var(--color-surface-subtle);
+  border: 1px solid var(--color-border);
+  transition: all var(--transition-fast);
+}
+
+.icon-btn:hover {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border-color: var(--color-primary);
+}
+
+.hamburger-btn {
+  display: none; /* hidden on desktop */
+}
+
+/* Search Dropdown / Bar */
+.search-overlay {
+  display: none;
+  background-color: var(--color-surface-subtle);
+  border-bottom: 1px solid var(--color-border);
+  padding: 12px 0;
+}
+
+.search-overlay.active {
+  display: block;
+}
+
+.search-form {
+  display: flex;
+  gap: var(--space-sm);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.search-input {
+  flex: 1;
+  height: 42px;
+  padding: 0 var(--space-md);
+  border: 1px solid var(--color-border-dark);
+  border-radius: var(--radius-sm);
+  font-size: 0.9375rem;
+  background-color: #ffffff;
+}
+
+.search-submit-btn {
+  height: 42px;
+  padding: 0 var(--space-lg);
+  background-color: var(--color-primary);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.875rem;
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition-fast);
+}
+
+.search-submit-btn:hover {
+  background-color: var(--color-primary-dark);
+}
+
+/* --------------------------------------------------------------------------
+   5. MAIN NAVIGATION
+   -------------------------------------------------------------------------- */
+.main-navigation {
+  background-color: #ffffff;
+  border-bottom: 2px solid var(--color-primary);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE */
+}
+
+.nav-list::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.nav-item {
+  position: relative;
+  white-space: nowrap;
+}
+
+.nav-link {
+  display: inline-block;
+  padding: 13px 14px;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #1e293b;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  transition: all var(--transition-fast);
+}
+
+.nav-link:hover {
+  color: var(--color-primary);
+  border-bottom-color: rgba(0, 102, 51, 0.3);
+}
+
+.nav-link.active {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+}
+
+/* Dropdown for "More" */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  background-color: #ffffff;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  padding: var(--space-xs) 0;
+  border-radius: var(--radius-sm);
+  z-index: 200;
+}
+
+.dropdown-item {
+  display: block;
+  padding: 8px 16px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-main);
+  text-transform: none;
+}
+
+.dropdown-item:hover {
+  background-color: var(--color-surface-subtle);
+  color: var(--color-primary);
+}
+
+.nav-item.has-dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* Mobile Drawer (Hidden on Desktop) */
+.mobile-nav-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.mobile-nav-backdrop.open {
+  display: block;
+}
+
+.mobile-nav-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 85%;
+  max-width: 320px;
+  background-color: #ffffff;
+  z-index: 1001;
+  transform: translateX(-100%);
+  transition: transform var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.mobile-nav-drawer.open {
+  transform: translateX(0);
+}
+
+.mobile-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.mobile-drawer-close {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--color-text-muted);
+}
+
+.mobile-drawer-list {
+  padding: var(--space-md) 0;
+}
+
+.mobile-nav-link {
+  display: block;
+  padding: 12px var(--space-lg);
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-left: 4px solid transparent;
+}
+
+.mobile-nav-link.active,
+.mobile-nav-link:hover {
+  background-color: var(--color-surface-subtle);
+  color: var(--color-primary);
+  border-left-color: var(--color-primary);
+}
+
+/* --------------------------------------------------------------------------
+   6. BREAKING NEWS BAR
+   -------------------------------------------------------------------------- */
+.breaking-bar {
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--color-border);
+  padding: 8px 0;
+}
+
+.breaking-container {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.breaking-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--color-accent-red);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+
+.breaking-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  animation: pulse-dot 1.5s infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+.breaking-ticker-wrap {
+  flex: 1;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.breaking-item {
+  display: inline-block;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text-main);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  vertical-align: middle;
+}
+
+.breaking-item:hover {
+  color: var(--color-accent-red);
+}
+
+.breaking-controls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.breaking-btn {
+  width: 26px;
+  height: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-surface-subtle);
+  border: 1px solid var(--color-border);
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.breaking-btn:hover {
+  background-color: var(--color-border);
+  color: var(--color-text-main);
+}
+
+/* --------------------------------------------------------------------------
+   7. ADVERTISEMENT SYSTEM
+   (Strictly adheres to .ad-slot, .ad-banner, .ad-sidebar, .ad-infeed, .ad-card, .ad-mobile)
+   -------------------------------------------------------------------------- */
+.ad-slot {
+  background-color: #f1f5f9;
+  border: 1px dashed #cbd5e1;
+  border-radius: var(--radius-sm);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  position: relative;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ad-label {
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  margin-bottom: 6px;
+}
+
+.ad-placeholder-text {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #64748b;
+  line-height: 1.3;
+}
+
+.ad-dimensions {
+  font-size: 0.6875rem;
+  color: #94a3b8;
+  margin-top: 4px;
+}
+
+/* Specific Ad Formats */
+.ad-banner {
+  width: 100%;
+  max-width: 970px;
+  min-height: 90px;
+  margin-top: var(--space-md);
+  margin-bottom: var(--space-md);
+  padding: 12px;
+}
+
+.ad-sidebar {
+  width: 100%;
+  max-width: 336px;
+  min-height: 280px;
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-lg);
+  padding: var(--space-md);
+}
+
+.ad-infeed {
+  width: 100%;
+  min-height: 110px;
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-xl);
+  padding: var(--space-md);
+  background-color: #eef2f6;
+  border-color: #cbd5e1;
+}
+
+.ad-card {
+  height: 100%;
+  min-height: 260px;
+  padding: var(--space-lg);
+  background-color: #f8fafc;
+  border: 1px dashed #94a3b8;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ad-mobile {
+  display: none; /* activated on mobile screens */
+  width: 100%;
+  min-height: 70px;
+  margin: var(--space-md) auto;
+  padding: var(--space-sm);
+}
+
+.mobile-bottom-ad-space {
+  display: none;
+  background-color: #f1f5f9;
+  border-top: 1px solid #cbd5e1;
+  padding: 8px 0;
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   8. EDITORIAL CARDS & REUSABLE COMPONENTS
+   -------------------------------------------------------------------------- */
+.badge-category {
+  display: inline-block;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: 6px;
+}
+
+.badge-category.nigeria { color: var(--cat-nigeria); }
+.badge-category.politics { color: var(--cat-politics); }
+.badge-category.business { color: var(--cat-business); }
+.badge-category.economy { color: var(--cat-economy); }
+.badge-category.tech { color: var(--cat-tech); }
+.badge-category.sports { color: var(--cat-sports); }
+.badge-category.entertainment { color: var(--cat-entertainment); }
+.badge-category.health { color: var(--cat-health); }
+.badge-category.education { color: var(--cat-education); }
+
+/* Indicators: ORIGINAL vs EXTERNAL SOURCE */
+.content-type-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.625rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 2px 6px;
+  border-radius: 2px;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+.content-type-badge.original {
+  background-color: #e6f4ea;
+  color: #0b6832;
+  border: 1px solid #a6d5b8;
+}
+
+.content-type-badge.external {
+  background-color: #f1f5f9;
+  color: #475569;
+  border: 1px solid #cbd5e1;
+}
+
+.story-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: var(--color-text-light);
+  margin-top: 8px;
+}
+
+.story-source {
+  font-weight: 700;
+  color: var(--color-text-muted);
+}
+
+.story-meta-divider {
+  color: #cbd5e1;
+}
+
+/* Card Image Containers */
+.card-image-wrap {
+  position: relative;
+  overflow: hidden;
+  background-color: #e2e8f0;
+  border-radius: var(--radius-sm);
+}
+
+.card-image-wrap img,
+.card-image-wrap svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-normal);
+}
+
+.news-card:hover .card-image-wrap img,
+.news-card:hover .card-image-wrap svg {
+  transform: scale(1.03);
+}
+
+/* Card Hierarchy: Large, Medium, Small */
+.card-large {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-large .card-image-wrap {
+  aspect-ratio: 16 / 9;
+  max-height: 420px;
+}
+
+.card-large .card-content {
+  padding: var(--space-lg);
+}
+
+.card-large .card-headline {
+  font-family: var(--font-serif);
+  font-size: 1.875rem;
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--color-text-main);
+  margin-top: 6px;
+  margin-bottom: 12px;
+}
+
+.card-large .card-excerpt {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.card-medium {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card-medium .card-image-wrap {
+  aspect-ratio: 16 / 10;
+}
+
+.card-medium .card-content {
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.card-medium .card-headline {
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--color-text-main);
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+
+.card-medium .card-excerpt {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  margin-bottom: 12px;
+  flex: 1;
+}
+
+.card-small-horizontal {
+  display: flex;
+  gap: var(--space-md);
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.card-small-horizontal:last-child {
+  border-bottom: none;
+}
+
+.card-small-horizontal .card-image-wrap {
+  width: 100px;
+  height: 75px;
+  flex-shrink: 0;
+}
+
+.card-small-horizontal .card-content {
+  flex: 1;
+}
+
+.card-small-horizontal .card-headline {
+  font-family: var(--font-serif);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--color-text-main);
+}
+
+/* --------------------------------------------------------------------------
+   9. MAIN LEAD NEWS AREA (Section 6)
+   -------------------------------------------------------------------------- */
+.lead-news-section {
+  padding-top: var(--space-lg);
+  padding-bottom: var(--space-xl);
+}
+
+.lead-grid {
+  display: grid;
+  grid-template-columns: 2fr 1.15fr;
+  gap: var(--space-lg);
+  align-items: start;
+}
+
+.lead-secondary-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.lead-secondary-item {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-md);
+  display: flex;
+  gap: var(--space-md);
+}
+
+.lead-secondary-item .card-image-wrap {
+  width: 120px;
+  height: 90px;
+  flex-shrink: 0;
+}
+
+.lead-secondary-item .card-content {
+  flex: 1;
+}
+
+.lead-secondary-item .card-headline {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.35;
+  margin-top: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   10. LATEST NEWS & SIDEBAR SECTION (Sections 7 & 8)
+   -------------------------------------------------------------------------- */
+.latest-and-sidebar-section {
+  padding-top: var(--space-md);
+  padding-bottom: var(--space-xl);
+}
+
+.section-header-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid var(--color-text-main);
+  padding-bottom: 8px;
+  margin-bottom: var(--space-md);
+}
+
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--color-text-main);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.section-title::before {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 18px;
+  background-color: var(--color-primary);
+  border-radius: 2px;
+}
+
+.section-view-all {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.section-view-all:hover {
+  text-decoration: underline;
+}
+
+.two-column-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--space-xl);
+}
+
+/* Latest Stories Stream */
+.latest-stories-list {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-md) var(--space-lg);
+}
+
+/* Sidebar Components */
+.sidebar-box {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.sidebar-heading {
+  font-size: 1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 2px solid var(--color-primary);
+  padding-bottom: 6px;
+  margin-bottom: var(--space-md);
+  color: var(--color-text-main);
+}
+
+/* Most Read Numbered List */
+.most-read-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.most-read-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.most-read-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.most-read-number {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: #cbd5e1;
+  line-height: 1;
+  min-width: 24px;
+}
+
+.most-read-item:hover .most-read-number {
+  color: var(--color-primary);
+}
+
+.most-read-content {
+  flex: 1;
+}
+
+.most-read-headline {
+  font-family: var(--font-serif);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--color-text-main);
+}
+
+/* Nigerian Market & Naira Watch (Editorial Sidebar Feature) */
+.market-widget {
+  background-color: #f8fafc;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-md);
+  margin-top: var(--space-md);
+}
+
+.market-widget-title {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-primary-dark);
+  margin-bottom: 8px;
+}
+
+.market-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px dotted #cbd5e1;
+  font-size: 0.8125rem;
+}
+
+.market-item:last-child {
+  border-bottom: none;
+}
+
+.market-name {
+  font-weight: 600;
+  color: var(--color-text-main);
+}
+
+.market-value {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.market-change {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 1px 4px;
+  border-radius: 2px;
+}
+
+.market-change.positive { color: #15803d; background-color: #dcfce7; }
+.market-change.neutral { color: #475569; background-color: #f1f5f9; }
+
+/* --------------------------------------------------------------------------
+   11. OUR ORIGINAL STORIES (Section 13)
+   A distinct newsroom showcase with elevated editorial styling.
+   -------------------------------------------------------------------------- */
+.original-stories-section {
+  background-color: #ffffff;
+  border-top: 3px solid var(--color-primary);
+  border-bottom: 3px solid var(--color-primary);
+  padding: var(--space-xl) 0;
+  margin: var(--space-xl) 0;
+}
+
+.newsroom-tagline {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  margin-top: -6px;
+  margin-bottom: var(--space-lg);
+}
+
+.original-stories-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+.original-card {
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.original-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
+}
+
+.original-card .card-image-wrap {
+  aspect-ratio: 16 / 9;
+}
+
+.original-card .card-content {
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.original-card .card-headline {
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  font-weight: 800;
+  line-height: 1.35;
+  color: var(--color-text-main);
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+
+.original-card .card-excerpt {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  margin-bottom: 12px;
+  flex: 1;
+}
+
+/* --------------------------------------------------------------------------
+   12. CATEGORY SECTIONS (Section 10 & 12)
+   Nigeria, Politics, Business, Technology, Entertainment, Sports
+   Includes in-grid ad slot demonstration.
+   -------------------------------------------------------------------------- */
+.category-section {
+  padding-top: var(--space-lg);
+  padding-bottom: var(--space-xl);
+}
+
+.category-row-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+  margin-bottom: var(--space-xl);
+}
+
+.category-block {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 3-Column News Card Grid with In-Grid Ad Slot */
+.category-grid-3col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+/* --------------------------------------------------------------------------
+   13. NEWSLETTER SECTION (Section 19)
+   -------------------------------------------------------------------------- */
+.newsletter-section {
+  background-color: #0b1727;
+  color: #ffffff;
+  padding: var(--space-xxl) 0;
+  margin-top: var(--space-xxl);
+  border-top: 4px solid var(--color-primary);
+}
+
+.newsletter-box {
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.newsletter-badge {
+  display: inline-block;
+  background-color: rgba(0, 102, 51, 0.35);
+  border: 1px solid var(--color-primary);
+  color: #4ade80;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: var(--space-md);
+}
+
+.newsletter-title {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.25;
+  margin-bottom: var(--space-sm);
+  color: #ffffff;
+}
+
+.newsletter-desc {
+  font-size: 1rem;
+  color: #94a3b8;
+  margin-bottom: var(--space-lg);
+  line-height: 1.6;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: var(--space-sm);
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.newsletter-input {
+  flex: 1;
+  height: 48px;
+  padding: 0 var(--space-md);
+  border-radius: var(--radius-sm);
+  border: 1px solid #334155;
+  background-color: #1e293b;
+  color: #ffffff;
+  font-size: 0.9375rem;
+}
+
+.newsletter-input::placeholder {
+  color: #64748b;
+}
+
+.newsletter-input:focus {
+  border-color: var(--color-primary-light);
+  background-color: #0f172a;
+}
+
+.newsletter-btn {
+  height: 48px;
+  padding: 0 var(--space-xl);
+  background-color: var(--color-primary);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition-fast);
+  white-space: nowrap;
+}
+
+.newsletter-btn:hover {
+  background-color: var(--color-primary-light);
+}
+
+.newsletter-notice {
+  font-size: 0.75rem;
+  color: #64748b;
+  margin-top: 10px;
+}
+
+.newsletter-feedback {
+  margin-top: var(--space-md);
+  padding: 10px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  font-weight: 600;
+  display: none;
+}
+
+.newsletter-feedback.show {
+  display: block;
+}
+
+.newsletter-feedback.info {
+  background-color: rgba(59, 130, 246, 0.15);
+  border: 1px solid #3b82f6;
+  color: #93c5fd;
+}
+
+/* --------------------------------------------------------------------------
+   14. FOOTER (Section 20)
+   -------------------------------------------------------------------------- */
+.main-footer {
+  background-color: #050b14;
+  color: #94a3b8;
+  padding-top: var(--space-xxl);
+  font-size: 0.875rem;
+}
+
+.footer-top-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: var(--space-xl);
+  padding-bottom: var(--space-xxl);
+  border-bottom: 1px solid #1e293b;
+}
+
+.footer-brand .brand-logo {
+  color: #ffffff;
+  font-size: 1.75rem;
+}
+
+.footer-brand-desc {
+  margin-top: var(--space-md);
+  line-height: 1.6;
+  color: #94a3b8;
+  max-width: 320px;
+}
+
+.footer-social-wrap {
+  margin-top: var(--space-lg);
+}
+
+.footer-heading {
+  font-size: 0.8125rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+  margin-bottom: var(--space-md);
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-link {
+  color: #94a3b8;
+  transition: color var(--transition-fast);
+}
+
+.footer-link:hover {
+  color: #ffffff;
+}
+
+.footer-bottom {
+  padding: var(--space-lg) 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  font-size: 0.8125rem;
+  color: #64748b;
+}
+
+.back-to-top-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #94a3b8;
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.back-to-top-btn:hover {
+  color: #ffffff;
+}
+
+/* --------------------------------------------------------------------------
+   15. RESPONSIVE MEDIA QUERIES (Desktop, Laptop, Tablet, Mobile)
+   -------------------------------------------------------------------------- */
+/* Laptop & Small Desktop (1024px and down) */
+@media (max-width: 1024px) {
+  .brand-logo {
+    font-size: 1.875rem;
+  }
+  .header-tagline-wrap {
+    display: none;
+  }
+  .lead-grid {
+    grid-template-columns: 1fr;
+  }
+  .lead-secondary-stack {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .lead-secondary-item {
+    flex-direction: column;
+  }
+  .lead-secondary-item .card-image-wrap {
+    width: 100%;
+    height: 120px;
+  }
+  .two-column-layout {
+    grid-template-columns: 1fr;
+  }
+  .original-stories-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .category-row-2col {
+    grid-template-columns: 1fr;
+  }
+  .category-grid-3col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .footer-top-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Tablet (768px and down) */
+@media (max-width: 768px) {
+  .top-utility-bar {
+    display: none; /* keep mobile header clean */
+  }
+  .hamburger-btn {
+    display: inline-flex;
+  }
+  .main-navigation {
+    display: none; /* hidden on mobile in favor of drawer */
+  }
+  .lead-secondary-stack {
+    grid-template-columns: 1fr;
+  }
+  .lead-secondary-item {
+    flex-direction: row;
+  }
+  .lead-secondary-item .card-image-wrap {
+    width: 110px;
+    height: 80px;
+  }
+  .card-large .card-headline {
+    font-size: 1.375rem;
+  }
+  .card-large .card-content {
+    padding: var(--space-md);
+  }
+  .original-stories-grid {
+    grid-template-columns: 1fr;
+  }
+  .category-grid-3col {
+    grid-template-columns: 1fr;
+  }
+  .newsletter-form {
+    flex-direction: column;
+  }
+  .newsletter-btn {
+    width: 100%;
+  }
+  .footer-top-grid {
+    grid-template-columns: 1fr;
+  }
+  /* Mobile Advertisements handling */
+  .ad-banner {
+    display: none;
+  }
+  .ad-mobile {
+    display: flex;
+  }
+  .mobile-bottom-ad-space {
+    display: block;
+  }
+}
+
+/* Small Mobile (480px and down) */
+@media (max-width: 480px) {
+  .brand-logo {
+    font-size: 1.5rem;
+  }
+  .card-small-horizontal {
+    gap: var(--space-sm);
+  }
+  .card-small-horizontal .card-image-wrap {
+    width: 85px;
+    height: 65px;
+  }
+  .breaking-label {
+    padding: 3px 8px;
+    font-size: 0.6875rem;
+  }
+}

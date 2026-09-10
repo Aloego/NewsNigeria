@@ -1,0 +1,6 @@
+{
+  "name": "News Nigeria",
+  "description": "A modern, professional Nigerian news publication homepage featuring nationwide editorial coverage, breaking news, original reporting, aggregated sources, and dedicated category sections.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
