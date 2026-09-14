@@ -9,7 +9,7 @@
   <meta property="og:description" content="A modern, professional Nigerian news publication homepage featuring nationwide editorial coverage, breaking news, original reporting, aggregated sources, and dedicated category sections.">
   <meta property="og:type" content="website">
   <link rel="stylesheet" href="./style.css">
-  <script src="./script.js" defer></script>
+  <script type="module" src="/script.js"></script>
 </head>
 <body>
 
@@ -374,7 +374,7 @@
               <a href="#latest" class="section-view-all">View All Latest Stories &rarr;</a>
             </div>
 
-            <div class="latest-stories-list">
+            <div class="latest-stories-list" id="latest-stories-list" aria-live="polite" aria-busy="true">
               
               <!-- Item 1: Education -->
               <article class="news-card card-small-horizontal">
@@ -648,7 +648,7 @@
           <a href="article.html" class="section-view-all" data-story-type="original" data-headline="Explore all Newsroom investigations">Explore Newsroom &rarr;</a>
         </div>
 
-        <div class="original-stories-grid">
+        <div class="original-stories-grid" id="original-stories-grid">
           
           <!-- Original Story 1: Commuter Transport Policy -->
           <article class="news-card original-card" id="original-story-1">
@@ -763,7 +763,7 @@
         <div class="category-row-2col">
           
           <!-- Block A: Nigeria National Coverage -->
-          <div class="category-block" id="nigeria">
+          <div class="category-block" id="nigeria" data-story-section="nigeria">
             <div class="section-header-wrap">
               <h2 class="section-title">Nigeria</h2>
               <a href="#nigeria" class="section-view-all">View All &rarr;</a>
@@ -828,7 +828,7 @@
           </div>
 
           <!-- Block B: Politics Coverage -->
-          <div class="category-block" id="politics">
+          <div class="category-block" id="politics" data-story-section="politics">
             <div class="section-header-wrap">
               <h2 class="section-title">Politics</h2>
               <a href="#politics" class="section-view-all">View All &rarr;</a>
@@ -919,7 +919,7 @@
           <a href="#business" class="section-view-all">View All Business &amp; Tech &rarr;</a>
         </div>
 
-        <div class="category-grid-3col">
+        <div class="category-grid-3col" id="business-technology-grid">
           
           <!-- Card 1: Business News (External) -->
           <article class="news-card card-medium" id="biz-card-1">
@@ -1007,7 +1007,7 @@
         <div class="category-row-2col">
           
           <!-- Entertainment & Culture -->
-          <div class="category-block" id="entertainment">
+          <div class="category-block" id="entertainment" data-story-section="entertainment">
             <div class="section-header-wrap">
               <h2 class="section-title">Entertainment &amp; Culture</h2>
               <a href="#entertainment" class="section-view-all">View All &rarr;</a>
@@ -1051,7 +1051,7 @@
           </div>
 
           <!-- Sports -->
-          <div class="category-block" id="sports">
+          <div class="category-block" id="sports" data-story-section="sports">
             <div class="section-header-wrap">
               <h2 class="section-title">Sports</h2>
               <a href="#sports" class="section-view-all">View All &rarr;</a>
