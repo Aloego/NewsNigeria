@@ -1681,6 +1681,35 @@ ul, ol {
   .mobile-bottom-ad-space {
     display: block;
   }
+
+  /* Breaking News Bar - Single Column layout on mobile device */
+  section#breaking-news-bar {
+    padding: 10px 0;
+  }
+
+  section#breaking-news-bar .breaking-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  section#breaking-news-bar .breaking-ticker-wrap {
+    width: 100%;
+    white-space: normal;
+  }
+
+  section#breaking-news-bar .breaking-item {
+    display: block;
+    width: 100%;
+    white-space: normal;
+    text-overflow: clip;
+    line-height: 1.45;
+  }
+
+  section#breaking-news-bar .breaking-controls {
+    align-self: flex-start;
+    gap: 6px;
+  }
 }
 
 /* Small Mobile (480px and down) */

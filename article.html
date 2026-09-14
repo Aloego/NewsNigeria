@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="page-title">Article | News Nigeria</title>
+  <meta name="description" id="page-description" content="Read full coverage, analysis, and reports on News Nigeria.">
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="/article.js"></script>
+</head>
+<body class="article-view-page">
+  <!-- Top Utility Bar -->
+  <header class="top-utility-bar" id="utility-bar">
+    <div class="container utility-container">
+      <div class="utility-left">
+        <span class="utility-date" id="current-date">Thursday, September 10, 2026 • Lagos / Abuja (WAT)</span>
+        <span class="utility-divider" aria-hidden="true"></span>
+        <span class="utility-tagline">Nigeria's latest news and stories</span>
+        <span class="utility-divider" aria-hidden="true"></span>
+        <a href="admin.html" class="utility-tagline" style="color: var(--color-primary-light); font-weight: 600;" title="Newsroom Publishing & Review Queue">Admin CMS</a>
+      </div>
+      <div class="utility-right">
+        <div class="utility-weather" id="utility-weather" title="National Weather Snapshot">
+          <span>Lagos 29°C ⛅</span> &bull; <span>Abuja 31°C ☀️</span>
+        </div>
+        <nav class="social-links" aria-label="Social media channels">
+          <a href="#" class="social-link" title="Follow us on X (Twitter)" aria-label="X Twitter">𝕏</a>
+          <a href="#" class="social-link" title="Follow us on Facebook" aria-label="Facebook">f</a>
+          <a href="#" class="social-link" title="Follow us on Instagram" aria-label="Instagram">📸</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Header -->
+  <header class="main-header" id="main-header">
+    <div class="container header-container">
+      <div class="brand-logo-wrap">
+        <a href="/" class="brand-logo" id="site-logo" aria-label="News Nigeria Homepage">
+          NEWS <span class="accent-green">NIGERIA</span>
+          <span class="brand-flag-badge" aria-hidden="true" title="Federal Republic of Nigeria">
+            <span class="flag-green"></span>
+            <span class="flag-white"></span>
+            <span class="flag-green"></span>
+          </span>
+        </a>
+        <span class="brand-subtext">Independent National Online Publication</span>
+      </div>
+      <div class="header-right-actions">
+        <a href="/" class="admin-secondary-button" style="text-decoration:none;">← Front Page</a>
+        <a href="/admin.html" class="admin-submit" style="text-decoration:none; padding:8px 14px; font-size:0.875rem;">Newsroom Admin</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Article Container -->
+  <main class="container article-container-shell" id="article-main">
+    <nav class="article-breadcrumb" aria-label="Breadcrumbs">
+      <a href="/" class="breadcrumb-link">Home</a>
+      <span class="breadcrumb-separator" aria-hidden="true">/</span>
+      <span id="breadcrumb-category" class="breadcrumb-current">News</span>
+    </nav>
+
+    <!-- Status message / Loading state -->
+    <div id="article-status" class="article-status-box" role="status" aria-live="polite">
+      <p>Loading article coverage…</p>
+    </div>
+
+    <!-- Article Content Wrapper (Hidden until loaded) -->
+    <article id="article-wrapper" class="article-view-layout" style="display:none;">
+      <header class="article-header">
+        <div class="article-badges">
+          <span id="article-type-badge" class="content-type-badge original">ORIGINAL</span>
+          <span id="article-category-badge" class="badge-category nigeria">Nigeria</span>
+          <span id="article-breaking-badge" class="breaking-label" style="display:none;">Breaking News</span>
+        </div>
+
+        <h1 id="article-headline" class="article-headline">Headline loading…</h1>
+        <p id="article-lead-excerpt" class="article-lead-excerpt"></p>
+
+        <div class="article-meta-bar">
+          <div class="article-byline">
+            <span class="byline-label">REPORTING BY</span>
+            <span id="article-author" class="byline-name">News Nigeria Editorial Team</span>
+          </div>
+          <span class="article-meta-sep" aria-hidden="true">•</span>
+          <div class="article-published-time">
+            <span class="time-label">PUBLISHED</span>
+            <time id="article-datetime"></time>
+          </div>
+          <span class="article-meta-sep" aria-hidden="true">•</span>
+          <div class="article-reading-time">
+            <span id="article-reading-estimate">3 min read</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Featured Image Area -->
+      <figure id="article-figure" class="article-figure" style="display:none;">
+        <img id="article-image" src="" alt="Story visual" class="article-featured-image" loading="eager">
+        <figcaption id="article-caption" class="article-caption">Photo: News Nigeria Editorial Desk</figcaption>
+      </figure>
+
+      <!-- Article Text Body -->
+      <div id="article-body-content" class="article-body-content">
+        <!-- Paragraphs will be dynamically injected -->
+      </div>
+
+      <!-- External Source Box (shown if story has external source_url) -->
+      <div id="article-source-box" class="article-source-attribution" style="display:none;">
+        <div class="source-attr-icon">🔗</div>
+        <div>
+          <h3>Original Source Reporting</h3>
+          <p>This coverage aggregates reporting originally syndicated by <strong id="source-attr-name">Source</strong>.</p>
+          <a id="source-attr-link" href="#" target="_blank" rel="noopener noreferrer" class="admin-secondary-button" style="display:inline-block; margin-top:8px; text-decoration:none;">
+            View full report on original publisher site ↗
+          </a>
+        </div>
+      </div>
+
+      <!-- Article Action Footer -->
+      <footer class="article-footer-nav">
+        <div class="article-footer-actions">
+          <a href="/" class="admin-secondary-button" style="text-decoration:none;">← Return to Front Page</a>
+          <a href="/admin.html" class="admin-secondary-button" style="text-decoration:none;">Newsroom CMS</a>
+          <button type="button" id="share-article-button" class="admin-secondary-button">Copy Article Link</button>
+        </div>
+        <p id="share-feedback" class="admin-feedback success" style="margin-top:10px;"></p>
+      </footer>
+    </article>
+  </main>
+
+  <!-- Main Footer -->
+  <footer class="main-footer" id="site-footer">
+    <div class="container footer-container">
+      <div class="footer-top-grid">
+        <div class="footer-brand">
+          <a href="/" class="brand-logo footer-logo">NEWS <span class="accent-green">NIGERIA</span></a>
+          <p class="footer-brand-desc">
+            Independent, factual, and forward-looking journalism delivering essential coverage across Nigeria's geopolitical zones and global diaspora.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-heading">Sections</h3>
+          <ul class="footer-links">
+            <li><a href="/#lead-section" class="footer-link">Top Stories</a></li>
+            <li><a href="/#section-nigeria" class="footer-link">National &amp; States</a></li>
+            <li><a href="/#section-politics" class="footer-link">Politics &amp; Policy</a></li>
+            <li><a href="/#section-business-tech" class="footer-link">Economy &amp; Business</a></li>
+            <li><a href="/#section-sports" class="footer-link">Sports</a></li>
+            <li><a href="/#section-entertainment" class="footer-link">Arts &amp; Culture</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-heading">Newsroom</h3>
+          <ul class="footer-links">
+            <li><a href="/" class="footer-link">Front Page</a></li>
+            <li><a href="/admin.html" class="footer-link">Newsroom Admin &amp; CMS</a></li>
+            <li><a href="/#original-stories" class="footer-link">Investigative Desk</a></li>
+            <li><a href="/#editorial" class="footer-link">Editorial Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-heading">Edition</h3>
+          <p class="footer-link" style="margin-bottom:8px;">Nigeria &amp; West Africa Edition</p>
+          <p class="footer-link" style="color:var(--color-text-light);">Lagos / Abuja / Port Harcourt / Kano</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copyright">&copy; 2026 News Nigeria. All rights reserved.</p>
+        <a href="#" class="back-to-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">Back to Top ↑</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

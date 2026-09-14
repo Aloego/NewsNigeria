@@ -56,8 +56,12 @@ function populateHomepageSections(stories) {
     prependStories('lead-secondary-stories', featuredStories.slice(1, 4), createLeadSecondaryStoryCard);
   }
 
-  const breakingStory = stories.find((story) => story.is_breaking);
-  if (breakingStory) updateBreakingHeadline(breakingStory);
+  const breakingStories = stories.filter((story) => story.is_breaking);
+  if (breakingStories.length > 0) {
+    setDynamicBreakingTicker(breakingStories);
+  } else if (stories[0]) {
+    updateBreakingHeadline(stories[0]);
+  }
 
   const originalStories = stories.filter((story) => story.story_type === 'original').slice(0, 3);
   prependStories('original-stories-grid', originalStories, createFeatureStoryCard);
@@ -88,10 +92,13 @@ function updateBreakingHeadline(story) {
   const headline = document.getElementById('breaking-headline-text');
   if (!headline) return;
   headline.textContent = story.title;
-  headline.href = story.story_type === 'external' && story.source_url ? story.source_url : 'article.html';
+  headline.href = story.story_type === 'external' && story.source_url ? story.source_url : `article.html?id=${story.id}`;
   if (story.story_type === 'external' && story.source_url) {
     headline.target = '_blank';
     headline.rel = 'noopener noreferrer';
+  } else {
+    headline.removeAttribute('target');
+    headline.removeAttribute('rel');
   }
 }
 
@@ -184,7 +191,7 @@ function createBaseStoryCard(story, cardClassName) {
   const headline = document.createElement('h3');
   headline.className = 'card-headline';
   const link = document.createElement('a');
-  link.href = !isOriginal && story.source_url ? story.source_url : 'article.html';
+  link.href = !isOriginal && story.source_url ? story.source_url : `article.html?id=${story.id}`;
   link.textContent = story.title || 'Untitled story';
   if (!isOriginal && story.source_url) {
     link.target = '_blank';
@@ -344,51 +351,80 @@ function initSearchToggle() {
 /**
  * 4. Breaking News Ticker Controls & Auto-cycling
  */
-function initBreakingTicker() {
-  const tickerItems = [
-    { text: 'Federal Government announces updated monetary and trade incentives to boost non-oil exports across geopolitical zones', category: 'ECONOMY' },
-    { text: 'National Assembly plenary enters final deliberations on state police framework and electoral reforms', category: 'POLITICS' },
-    { text: 'Lagos-Ibadan rail freight corridor records 40% cargo throughput increase in Q3 2026', category: 'INFRASTRUCTURE' },
-    { text: 'Nigeria Super Eagles squad opens training camp in Uyo ahead of continental qualifiers', category: 'SPORTS' },
-    { text: 'Tech hubs in Lagos, Abuja, and Enugu announce joint ₦10B seed accelerator for green energy startups', category: 'TECHNOLOGY' }
-  ];
+let dynamicTickerItems = [
+  { text: 'Federal Government announces updated monetary and trade incentives to boost non-oil exports across geopolitical zones', href: 'article.html?id=1', isExternal: false, category: 'ECONOMY' },
+  { text: 'National Assembly plenary enters final deliberations on state police framework and electoral reforms', href: 'article.html?id=5', isExternal: false, category: 'POLITICS' },
+  { text: 'Lagos-Ibadan rail freight corridor records 40% cargo throughput increase in Q3 2026', href: 'article.html?id=3', isExternal: false, category: 'INFRASTRUCTURE' },
+  { text: 'Nigeria Super Eagles squad opens training camp in Uyo ahead of continental qualifiers', href: 'article.html?id=7', isExternal: false, category: 'SPORTS' },
+  { text: 'Tech hubs in Lagos, Abuja, and Enugu announce joint ₦10B seed accelerator for green energy startups', href: 'article.html?id=4', isExternal: false, category: 'TECHNOLOGY' }
+];
 
-  let currentIndex = 0;
-  let isPaused = false;
-  const textElement = document.getElementById('breaking-headline-text');
+let tickerIndex = 0;
+let tickerIsPaused = false;
+let tickerTextElement = null;
+
+function setDynamicBreakingTicker(breakingStories) {
+  if (!Array.isArray(breakingStories) || breakingStories.length === 0) return;
+  dynamicTickerItems = breakingStories.map((story) => ({
+    text: story.title,
+    href: story.story_type === 'external' && story.source_url ? story.source_url : `article.html?id=${story.id}`,
+    isExternal: story.story_type === 'external' && Boolean(story.source_url),
+    category: String(story.category || 'BREAKING').toUpperCase(),
+  }));
+  tickerIndex = 0;
+  if (tickerTextElement) {
+    applyTickerItem(0);
+  }
+}
+
+function applyTickerItem(index) {
+  if (!tickerTextElement || dynamicTickerItems.length === 0) return;
+  tickerIndex = (index + dynamicTickerItems.length) % dynamicTickerItems.length;
+  const item = dynamicTickerItems[tickerIndex];
+
+  tickerTextElement.style.opacity = '0';
+  setTimeout(() => {
+    tickerTextElement.textContent = item.text;
+    tickerTextElement.href = item.href;
+    if (item.isExternal) {
+      tickerTextElement.target = '_blank';
+      tickerTextElement.rel = 'noopener noreferrer';
+    } else {
+      tickerTextElement.removeAttribute('target');
+      tickerTextElement.removeAttribute('rel');
+    }
+    tickerTextElement.style.opacity = '1';
+  }, 150);
+}
+
+function initBreakingTicker() {
+  tickerTextElement = document.getElementById('breaking-headline-text');
   const prevBtn = document.getElementById('breaking-prev-btn');
   const nextBtn = document.getElementById('breaking-next-btn');
   const pauseBtn = document.getElementById('breaking-pause-btn');
 
-  if (!textElement) return;
+  if (!tickerTextElement) return;
 
-  function updateHeadline(index) {
-    currentIndex = (index + tickerItems.length) % tickerItems.length;
-    textElement.style.opacity = '0';
-    setTimeout(() => {
-      textElement.textContent = tickerItems[currentIndex].text;
-      textElement.style.opacity = '1';
-    }, 150);
-  }
+  applyTickerItem(0);
 
   if (nextBtn) {
-    nextBtn.addEventListener('click', () => updateHeadline(currentIndex + 1));
+    nextBtn.addEventListener('click', () => applyTickerItem(tickerIndex + 1));
   }
   if (prevBtn) {
-    prevBtn.addEventListener('click', () => updateHeadline(currentIndex - 1));
+    prevBtn.addEventListener('click', () => applyTickerItem(tickerIndex - 1));
   }
   if (pauseBtn) {
     pauseBtn.addEventListener('click', () => {
-      isPaused = !isPaused;
-      pauseBtn.setAttribute('aria-label', isPaused ? 'Play Ticker' : 'Pause Ticker');
-      pauseBtn.innerHTML = isPaused ? '▶' : '⏸';
+      tickerIsPaused = !tickerIsPaused;
+      pauseBtn.setAttribute('aria-label', tickerIsPaused ? 'Play Ticker' : 'Pause Ticker');
+      pauseBtn.innerHTML = tickerIsPaused ? '▶' : '⏸';
     });
   }
 
   // Auto cycle every 6 seconds if not paused
   setInterval(() => {
-    if (!isPaused) {
-      updateHeadline(currentIndex + 1);
+    if (!tickerIsPaused) {
+      applyTickerItem(tickerIndex + 1);
     }
   }, 6000);
 }
@@ -445,23 +481,33 @@ function initBackToTop() {
 
 /**
  * 7. Sample Story Link Guidance
- * Clearly informs demo users whether clicked item is an Original Story or External Aggregated link.
+ * For original stories, ensure real navigation to article reader.
  */
 function initSampleStoryLinks() {
   const allCards = document.querySelectorAll('a[data-story-type]');
 
   allCards.forEach(link => {
+    const storyType = link.getAttribute('data-story-type');
+    const href = link.getAttribute('href');
+
+    // Ensure original links open a real article page
+    if (storyType === 'original' && (!href || href === '#' || href === 'article.html')) {
+      link.setAttribute('href', 'article.html?id=1');
+    }
+
     link.addEventListener('click', (e) => {
-      const storyType = link.getAttribute('data-story-type');
+      const currentHref = link.getAttribute('href');
       const headline = link.getAttribute('data-headline') || 'Story';
       const source = link.getAttribute('data-source') || '';
 
       if (storyType === 'original') {
-        e.preventDefault();
-        showToast(`[ORIGINAL STORY DEMO] "${headline}" is hosted on News Nigeria. In the full CMS, this opens the internal article reader page.`);
+        // Allow direct navigation to the article page
+        return;
       } else if (storyType === 'external') {
-        e.preventDefault();
-        showToast(`[EXTERNAL NEWS DEMO] Sourced from ${source}: "${headline}". In the production release, this forwards to the publisher's original article.`);
+        if (!currentHref || currentHref === '#') {
+          e.preventDefault();
+          showToast(`[EXTERNAL NEWS] Sourced from ${source}: "${headline}". Opening publisher partner feed.`);
+        }
       }
     });
   });
